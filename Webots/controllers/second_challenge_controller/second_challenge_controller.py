@@ -90,10 +90,10 @@ if __name__ == "__main__":
         green = camera.imageGetGreen(camera.getImage(), int(width), int(width / 2), int(height - 1))
         blue = camera.imageGetBlue(camera.getImage(), int(width), int(width / 2), int(height - 1))
         
-        #Print any test messages here
-        print("Red: " + str(red) + 
-        ", Green: " + str(green) + 
-        ", Blue: " + str(blue))
+        #RGB Values for Debugging
+        #print("Red: " + str(red) + 
+        #", Green: " + str(green) + 
+        #", Blue: " + str(blue))
         
 
         #move_forward()
