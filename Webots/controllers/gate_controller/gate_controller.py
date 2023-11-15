@@ -12,7 +12,7 @@ if __name__ == "__main__":
     #previous occurence of the gate being hit
     last_hit = 0.0
     #Initial pause before seeing if gate has been passed
-    starting_time = 8
+    timing_delay = 8
           
     #Get and enable Gate device
     gate_sensor = robot.getDevice("GateSensor")
@@ -30,7 +30,7 @@ if __name__ == "__main__":
         #print("Gate_sensor = " + str(gate_sensor.getValue()))
         
         #give some time so initial fall doesn't get recorded
-        if gate_touch == 1.0 and (current_time - last_hit) > starting_time:       
+        if gate_touch == 1.0 and (current_time - last_hit) > timing_delay:       
             print("Gate sensor hit at: " + str(current_time))
             
             #print("Last_hit Time: " + str(last_hit))
