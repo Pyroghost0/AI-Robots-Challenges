@@ -310,15 +310,15 @@ Robot {
   controller "second_challenge_controller"
 }
 CircleArena {
-  translation 0 0 0.1
+  translation 0 0 0.0001
   radius 3
   floorAppearance Parquetry {
     type "dark strip"
     IBLStrength 1000
   }
   floorTileSize 1 1
-  wallThickness 0.25
-  wallHeight 0.01
+  wallThickness 0.14
+  wallHeight 0.0001
   wallAppearance BrushedAluminium {
     colorOverride 0 0 0
   }

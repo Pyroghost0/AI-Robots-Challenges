@@ -13,8 +13,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.20155656555684784 0.6751561756838742 -0.7096048825345367 0.6556695665829007
-  position -8.98799457642155 5.376306770149401 4.673210038530429
+  orientation 0.12914412666228592 0.9630788583492995 -0.23622215634703989 0.801374768070436
+  position -8.008340037255726 2.8449355250551793 7.050558535941287
 }
 TexturedBackground {
 }
@@ -28,7 +28,7 @@ RectangleArena {
     colorOverride 0 1 0
     IBLStrength 10
   }
-  wallThickness 0.1
+  wallThickness 0.5
   wallHeight 0.5
 }
 Robot {
@@ -120,7 +120,7 @@ Robot {
       children [
         TrackWheel {
           position 0.175 0
-          rotation 0.021614687491627708 0.7069402852333476 -0.7069428819917719 3.098370167582399
+          rotation 0.0216146874916266 0.7069402852333477 -0.7069428819917718 3.098370167582404
           children [
             Shape {
               geometry Box {
@@ -139,7 +139,7 @@ Robot {
         }
         TrackWheel {
           position -0.175 0
-          rotation 0.021614687491627708 0.7069402852333476 -0.7069428819917719 3.098370167582399
+          rotation 0.0216146874916266 0.7069402852333477 -0.7069428819917718 3.098370167582404
           children [
             Shape {
               geometry Box {
@@ -317,7 +317,7 @@ CircleArena {
     IBLStrength 1000
   }
   floorTileSize 1 1
-  wallThickness 0.05
+  wallThickness 0.14
   wallHeight 0.0001
   wallAppearance BrushedAluminium {
     colorOverride 0 0 0
