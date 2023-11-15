@@ -307,7 +307,7 @@ Robot {
     density -1
     mass 2
   }
-  controller "SecondChallengeController"
+  controller "second_challenge_controller"
 }
 CircleArena {
   translation 0 0 0.1
