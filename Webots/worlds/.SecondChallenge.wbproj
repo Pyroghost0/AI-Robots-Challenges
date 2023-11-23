@@ -5,6 +5,6 @@ sceneTreePerspectives: 000000ff00000001000000030000002600000287000000fa010000000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 0 "controllers/third_challenge_controller/third_challenge_controller.py"
+textFiles: 0 "controllers/second_challenge_controller/second_challenge_controller.py"
 consoles: Console:All:All
 renderingDevicePerspectives: robot:camera;1;2.70313;0;0

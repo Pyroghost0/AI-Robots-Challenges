@@ -9,15 +9,12 @@ if __name__ == "__main__":
     
     # get the time step of the current world.
     timestep = 64
-    #previous occurence of the gate being hit
-    last_hit = 0.0
-    #Initial pause before seeing if gate has been passed
-    timing_delay = 8
           
     #Get and enable Gate device
     gate_sensor = robot.getDevice("GateSensor")
     gate_sensor.enable(timestep)
     
+    previous_touch = 1.0;
         # Main loop:
         # - perform simulation steps until Webots is stopping the controller
     while robot.step(timestep) != -1:
@@ -26,15 +23,14 @@ if __name__ == "__main__":
         gate_touch = gate_sensor.getValue()
         #time value
         current_time = robot.getTime()  
-
+        
         #print("Gate_sensor = " + str(gate_sensor.getValue()))
         
         #give some time so initial fall doesn't get recorded
-        if gate_touch == 1.0 and (current_time - last_hit) > timing_delay:       
+        if gate_touch == 1.0 and previous_touch != gate_touch:       
             print("Gate sensor hit at: " + str(current_time))
-            
             #print("Last_hit Time: " + str(last_hit))
             #print("Current Time: " + str(current_time))
-            
-            last_hit = robot.getTime()         
+        previous_touch = gate_touch
+        
     pass

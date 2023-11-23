@@ -8,13 +8,24 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BakelitePlastic.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/CircleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/toys/protos/RubberDuck.proto"
 
 WorldInfo {
+  contactProperties [
+    ContactProperties {
+      material2 "GateSensor"
+      coulombFriction [
+        0
+      ]
+      bounce 0
+      bounceVelocity 0
+      softERP 0
+      maxContactJoints 1
+    }
+  ]
 }
 Viewpoint {
-  orientation 0.12914412666228592 0.9630788583492995 -0.23622215634703989 0.801374768070436
-  position -8.008340037255726 2.8449355250551793 7.050558535941287
+  orientation -0.2492400645510271 0.8003269284428917 0.5453037665666417 1.1256165021255529
+  position -5.530221482716473 -4.325276000276986 8.136428187817698
 }
 TexturedBackground {
 }
@@ -32,7 +43,8 @@ RectangleArena {
   wallHeight 0.5
 }
 Robot {
-  translation -3.26 0 0.4
+  translation -3.12 0 0.4
+  rotation 0 0 1 -1.5707953071795862
   children [
     Solid {
       translation 0 0 0.2
@@ -120,7 +132,7 @@ Robot {
       children [
         TrackWheel {
           position 0.175 0
-          rotation 0.0216146874916266 0.7069402852333477 -0.7069428819917718 3.098370167582404
+          rotation 0.8322508724488862 0.3920187216792631 -0.39202016167669745 1.7533980524549222
           children [
             Shape {
               geometry Box {
@@ -139,7 +151,7 @@ Robot {
         }
         TrackWheel {
           position -0.175 0
-          rotation 0.0216146874916266 0.7069402852333477 -0.7069428819917718 3.098370167582404
+          rotation 0.8322508724488862 0.3920187216792631 -0.39202016167669745 1.7533980524549222
           children [
             Shape {
               geometry Box {
@@ -209,7 +221,7 @@ Robot {
       children [
         TrackWheel {
           position 0.175 0
-          rotation 0.3093035968755259 0.6724313954472463 -0.6724338654297025 2.5416543303110015
+          rotation 0.9550503360355902 0.20961695168677577 -0.20961772158825248 1.6167750233461962
           children [
             Shape {
               geometry Box {
@@ -228,7 +240,7 @@ Robot {
         }
         TrackWheel {
           position -0.175 0
-          rotation 0.3093035968755259 0.6724313954472463 -0.6724338654297025 2.5416543303110015
+          rotation 0.9550503360355902 0.20961695168677577 -0.20961772158825248 1.6167750233461962
           children [
             Shape {
               geometry Box {
@@ -307,7 +319,7 @@ Robot {
     density -1
     mass 2
   }
-  controller "second_challenge_controller"
+  controller "fourth_challenge_controller"
 }
 CircleArena {
   translation 0 0 0.0001
@@ -323,14 +335,8 @@ CircleArena {
     colorOverride 0 0 0
   }
 }
-RubberDuck {
-  translation -4.16 0.69 0.24
-  name "Evil duck"
-  scale 4
-  bodyColor 0.137255 0.439216 1
-  immersionProperties []
-}
 Robot {
+  translation 0 0 0.48
   children [
     TouchSensor {
       translation -3.13 0 -0.04
@@ -348,9 +354,11 @@ Robot {
         }
       ]
       name "GateSensor"
+      contactMaterial "GateSensor"
       boundingObject Box {
         size 1.1 0.1 0.1
       }
+      locked TRUE
     }
   ]
   name "GateSensor"

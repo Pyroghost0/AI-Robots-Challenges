@@ -81,7 +81,6 @@ if __name__ == "__main__":
     height = camera.getWidth()
 
     #Robot AI goes here
-
     while robot.step(time_step) != -1:
         #Gets the RGB of the bottom middle pixel on the camera
         #Note: Python issues with ImageGet'Color', C++ allowed float value indices but Python does not
@@ -94,7 +93,6 @@ if __name__ == "__main__":
         ", Green: " + str(green) + 
         ", Blue: " + str(blue))
         
-
         #move_forward()
     
     

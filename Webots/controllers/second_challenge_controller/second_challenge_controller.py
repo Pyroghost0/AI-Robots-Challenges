@@ -1,5 +1,3 @@
-
-
 from controller import Robot
 from controller import Motor
 import math
@@ -34,7 +32,7 @@ def drive_forward(angle, inRadians = False):
         right_motor.setVelocity( max_speed * math.sin((angle + 45) / 28.648) )
     else:
         left_motor.setVelocity(max_speed * math.sin((-angle + 45) / 28.648) )
-    right_motor.setVelocity(max_speed)
+        right_motor.setVelocity(max_speed)
 
 def turn_camera_up():
     camera_motor.setVelocity(-max_camera_speed)
