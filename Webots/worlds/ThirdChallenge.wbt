@@ -16,6 +16,12 @@ Viewpoint {
   orientation 0.2303457874314101 -0.7972066630111091 -0.5580343669195432 5.233796074663229
   position -6.700223453149467 -5.021610342979724 9.364354517714757
 }
+Robot {
+  translation 0.1 0 0.1
+  name "Random Placement"
+  controller "random_placement"
+  supervisor TRUE
+}
 TexturedBackground {
 }
 TexturedBackgroundLight {
@@ -31,7 +37,7 @@ RectangleArena {
   wallThickness 0.1
   wallHeight 0.5
 }
-Robot {
+DEF Random_0 Robot {
   translation -3.265151524447886 -1.1196801546018577e-05 0.32696027028050706
   rotation 0.00214637056486509 -0.9999976957805649 -3.907632693541857e-05 0.023547681770623642
   children [
@@ -324,7 +330,7 @@ CircleArena {
     colorOverride 0 0 0
   }
 }
-RubberDuck {
+DEF Random_1 RubberDuck {
   translation -4.160000071485802 0.6900000000000059 0.17870395873447137
   rotation -8.585428667581192e-08 -0.9999999999999963 1.839386518893504e-12 8.789353257857064e-07
   name "Evil duck"
@@ -332,7 +338,7 @@ RubberDuck {
   bodyColor 0.137255 0.439216 1
   immersionProperties []
 }
-Solid {
+DEF Random_2 Solid {
   translation 1.5430601748674324e-17 -0.9 0.27476199989401995
   rotation -0.4513974294165372 -0.6018632392220621 -0.6587875241603086 1.5419712613370263e-17
   children [
@@ -358,7 +364,7 @@ Solid {
     mass 0.6
   }
 }
-Solid {
+DEF Random_3 Solid {
   translation -7.773691689713547e-18 0.9 0.27476199989401995
   rotation -0.6968249309414069 0.34841246547070803 -0.6269320294283315 1.331834980246521e-17
   children [
@@ -384,7 +390,7 @@ Solid {
     mass 0.6
   }
 }
-Solid {
+DEF Random_4 Solid {
   translation -0.75 -0.6 0.2747936417718317
   children [
     Shape {
@@ -409,7 +415,7 @@ Solid {
     mass 0.13
   }
 }
-Solid {
+DEF Random_5 Solid {
   translation -0.75 0 0.2747936417718317
   children [
     Shape {
@@ -434,7 +440,7 @@ Solid {
     mass 0.13
   }
 }
-Solid {
+DEF Random_6 Solid {
   translation -0.75 0.6 0.2747936417718317
   children [
     Shape {
