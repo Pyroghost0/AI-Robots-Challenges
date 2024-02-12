@@ -95,14 +95,14 @@ if __name__ == "__main__":
         #using right arrow resets the camera to its default position 
         #using left arrow puts camera off of manual movement by flipping boolean value 
         #up arrow - Highest position
-        if(key==315):
-            print("[ Up Arrow [^] ] pressed: Moving Camera to Max upwards position: " + str(camera_min_position))
+        if (key==315):
+            print("[ Up Arrow    [^] ] pressed: Moving Camera to Max upwards position: " + str(camera_min_position))
             camera_manual = False
             camera_auto_direction = 1
             camera_position = camera_min_position #Highest position
         #down arrow - Lowest position
         elif (key==317):
-            print("[ Down Arrow [v] ] pressed: Moving Camera to Max downwards position: " + str(camera_max_position))
+            print("[ Down Arrow  [v] ] pressed: Moving Camera to Max downwards position: " + str(camera_max_position))
             camera_manual = False
             camera_auto_direction = 1
             camera_position = camera_max_position #Lowest position
@@ -114,7 +114,7 @@ if __name__ == "__main__":
             camera_position = camera_default_position #default camera position
         #left arrow key makes it go through range of positions
         elif (key==314):
-            print("[ Left Arrow [<] ] pressed: Camera resuming AI Movement...")
+            print("[ Left Arrow  [<] ] pressed: Camera resuming AI Movement...")
             if camera_auto_direction != 1 and camera_auto_direction != -1:
                 camera_auto_direction = 1 
             camera_manual = True
