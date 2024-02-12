@@ -60,7 +60,7 @@ if __name__ == "__main__":
     camera_min_position = -1 #actually highest
     camera_max_position = 0.1 #actually lowest
     #speed of camera motor with auto ai 
-    camera_auto_speed = 0.01 
+    camera_auto_speed = 0.02 
     camera_default_position = 0
     camera_position = 0.0
     #variable if want camera going through ai or manual movement
