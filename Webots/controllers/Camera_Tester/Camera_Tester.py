@@ -2,6 +2,7 @@
 
 from controller import Robot
 from controller import Motor
+from controller import Keyboard
 import math
 
 
@@ -56,94 +57,91 @@ if __name__ == "__main__":
     time_step = 64
     max_speed = 6.26
     max_camera_speed = 2.0
-    min_position = -10
-    max_position = 20
+    camera_min_position = -1 #actually highest
+    camera_max_position = 0.1 #actually lowest
+    #speed of camera motor with auto ai 
+    camera_auto_speed = 0.01 
+    camera_default_position = 0
+    camera_position = 0.0
+    #variable if want camera going through ai or manual movement
+    camera_manual = bool()
+    camera_auto_direction = int()
     
-    
-
-    
-
-    #Set up motor/track wheels
-    #left_motor = robot.getDevice("leftMotor")
-    #right_motor = robot.getDevice("rightMotor")
-    #left_motor.setPosition(math.inf)
-    #right_motor.setPosition(math.inf)
-
-    #Set up touch sensors
-    #left_sensor = robot.getDevice("left sensor")
-    #right_sensor = robot.getDevice("right sensor")
-    #left_sensor.enable(time_step)
-    #right_sensor.enable(time_step)
+    #Keyboard interaction instance
+    keyboard = Keyboard()
+    keyboard.enable(time_step)
 
     #Set up camera and camera motor
     camera = robot.getDevice("camera")
     camera.enable(time_step)
     
-    #camera_motor = robot.getDevice("camera_motor")
-    #print(type(camera_motor))
-    #camera_motor.setPosition(math.inf)
+    #RotationalMotor Object initialization
+    camera_motor = robot.getDevice("camera_motor_object")
+    #print(type(camera_motor)) #Double check that object is a motor
     
-    rm = robot.getDevice("rm")
-    print(type(rm))
-    rm.setPosition(math.inf)
-    #rm.maxPosition = max_position
-    #rm.minPosition = min_position
+    #Setting maximum rotational values of camera motor
+    camera_motor.maxPosition = camera_max_position
+    camera_motor.minPosition = camera_min_position
     
-    keyboard = robot.getKeyboard()
-    keyboard.enable(time_step)
-    
-    #camera_motor.setVelocity(0.0)
-    
+    #Main Loop while simulation is running
     while robot.step(time_step) != -1:
-        #camera_motor.setVelocity(max_camera_speed)
-        rm.setVelocity(-max_camera_speed)
+        #Get keyboard input every frame
+        key = keyboard.getKey()
         
-        #rotate = 0.0
-    
-        #keyboard.getKey()
-        key = int(keyboard.getKey())
-        print(key)
+        if camera_manual != False and camera_manual != True:
+            camera_manual = True
+               
+        #checks if either up/down arrow is pressed and applies position accordingly
+        #using right arrow resets the camera to its default position 
+        #using left arrow puts camera off of manual movement by flipping boolean value 
+        #up arrow - Highest position
+        if(key==315):
+            print("[ Up Arrow [^] ] pressed: Moving Camera to Max upwards position: " + str(camera_min_position))
+            camera_manual = False
+            camera_auto_direction = 1
+            camera_position = camera_min_position #Highest position
+        #down arrow - Lowest position
+        elif (key==317):
+            print("[ Down Arrow [v] ] pressed: Moving Camera to Max downwards position: " + str(camera_max_position))
+            camera_manual = False
+            camera_auto_direction = 1
+            camera_position = camera_max_position #Lowest position
+        #right arrow key resets position to 0
+        elif (key==316):
+            print("[ Right Arrow [>] ] pressed: Moving Camera to default position: " + str(camera_default_position))
+            camera_manual = False
+            camera_auto_direction = 1
+            camera_position = camera_default_position #default camera position
+        #left arrow key makes it go through range of positions
+        elif (key==314):
+            print("[ Left Arrow [<] ] pressed: Camera resuming AI Movement...")
+            if camera_auto_direction != 1 and camera_auto_direction != -1:
+                camera_auto_direction = 1 
+            camera_manual = True
         
-       # 
-        if (key == 315):
-            print("Going up")
-            max_camera_speed = 2.0  
-            #rm.setVelocity(-max_camera_speed) #isn't running
+        #change behavior if user is controlling or not
+        if(camera_manual == False): #user input mode
+            #Change camera position based on last input    
+            camera_motor.setPosition(camera_position)
+        else: #Camera AI movement mode
+            #To change with further implementation of camera code
+            #Currently showing basic functionality
+            if(camera_position <= camera_min_position): #if up all the way, go down
+                #Changes movement to downwards
+                #print("Camera now going down")
+                camera_auto_direction = -1
+                    
+            elif(camera_position >= camera_max_position): #can go higher, go up
+                #print("Camera now going up")
+                camera_auto_direction = 1
+                
+            #change camera position
+            camera_position -= (camera_auto_speed * camera_auto_direction)
+            camera_motor.setPosition(camera_position)
+                    
+                
         
-        elif (key == 317):
-            print("Going down")
-            #rm.setVelocity(max_camera_speed)
-            max_camera_speed = -2.0 
-            
-        else:
-            max_camera_speed = 0.0 
-            #rm.setVelocity(0)
-            #rotate += 0
-    
         
-    #reset_motors()
-
-    #Local variables
-    #width = camera.getWidth()
-    #height = camera.getWidth()
-
-    #Robot AI goes here
-
-    #while robot.step(time_step) != -1:
-        #Gets the RGB of the bottom middle pixel on the camera
-        #Note: Python issues with ImageGet'Color', C++ allowed float value indices but Python does not
-        #red = camera.imageGetRed(camera.getImage(), int(width), int(width / 2), int(height - 1))
-        #green = camera.imageGetGreen(camera.getImage(), int(width), int(width / 2), int(height - 1))
-        #blue = camera.imageGetBlue(camera.getImage(), int(width), int(width / 2), int(height - 1))
-        
-        #Print any test messages here
-        #print("Red: " + str(red) + 
-        #", Green: " + str(green) + 
-        #", Blue: " + str(blue))
-        
-
-        #move_forward()
-    
     
     #End of AI
     #reset_motors()

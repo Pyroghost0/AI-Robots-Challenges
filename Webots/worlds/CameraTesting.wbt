@@ -12,8 +12,9 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.0541777020850228 0.06938276398677416 0.9961178688580695 1.6900370403847111
-  position 0.40205591693868836 -2.37503856036157 0.4988755404683831
+  orientation -0.08627331003112308 0.11949335825145119 0.9890794979727687 1.4979507266164684
+  position -0.022361972729988196 -1.4681280877150915 0.4816119594594949
+  follow "robot"
 }
 TexturedBackground {
 }
@@ -31,18 +32,53 @@ RectangleArena {
   wallHeight 0.5
 }
 Robot {
-  translation -7.066955694988428e-17 1.0559869602662494e-08 0.22409881952103677
-  rotation -1 5.453821651709975e-10 -7.49590004612749e-10 4.693315582527811e-08
+  translation -7.8686683961483e-17 1.0559869605430697e-08 0.22409881952103677
+  rotation -1 2.3943607272710443e-10 -7.261212827556437e-10 4.693315584852316e-08
   children [
-    HingeJoint {
+    DEF CameraBaseTransform Transform {
+      translation -0.01 0 0.2
+      scale 1 1 2
+      children [
+        DEF CenterOfRotation_Horizontal Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            transparency 1
+          }
+          geometry Box {
+            size 0.1 0.1 0.001
+          }
+        }
+        DEF CenterOfRotation_Vertical Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            transparency 1
+          }
+          geometry Box {
+            size 0.001 0.1 0.1
+          }
+        }
+        DEF CameraBaseModel Shape {
+          appearance PBRAppearance {
+            baseColor 0.576471 0.576471 0.576471
+            transparency 0.01
+            metalness 0
+          }
+          geometry Box {
+            size 0.1 0.1 0.1
+          }
+        }
+      ]
+    }
+    DEF HingeCameraArm HingeJoint {
       jointParameters HingeJointParameters {
         axis 0 1 0
-        anchor 0 0 0.28
+        anchor -0.011 0 0.25
       }
       device [
         DEF rm RotationalMotor {
-          name "rm"
-          minPosition -2
+          name "camera_motor_object"
+          minPosition -10
+          maxPosition 10
         }
       ]
       endPoint Solid {
@@ -72,7 +108,7 @@ Robot {
                   }
                 ]
                 endPoint Solid {
-                  rotation 1 0 0 1.7510400000000013
+                  rotation 1 0 0 0
                   children [
                     DEF camera_camera Camera {
                     }
@@ -82,6 +118,8 @@ Robot {
               }
               Shape {
                 appearance PBRAppearance {
+                  baseColor 0 0.101961 0
+                  metalness 0
                 }
                 geometry Box {
                   size 0.1 0.1 0.1
@@ -331,8 +369,8 @@ CircleArena {
   }
 }
 RubberDuck {
-  translation -2.2000349966342423 -7.274133527480676e-13 0.0806132660445559
-  rotation -8.547091094424679e-08 -0.9999999999887605 4.740441445039966e-06 5.082910646985563e-07
+  translation -2.2000349966342423 -7.274060979776156e-13 0.0806132660445559
+  rotation -8.555339916253227e-08 -0.9999999999887604 4.740423771744092e-06 5.08291064717379e-07
   name "Evil duck"
   scale 4
   bodyColor 0.137255 0.439216 1
@@ -340,7 +378,7 @@ RubberDuck {
 }
 Solid {
   translation 1.1 -1.8 0.17576455999999993
-  rotation -0.8160420852717016 -6.943249979678113e-15 0.5779924870319795 2.2745293040288138e-17
+  rotation -0.28672884187458547 -1.2567001945129124e-14 0.958011780322799 1.618351003805804e-17
   children [
     Shape {
       appearance Appearance {
@@ -366,7 +404,7 @@ Solid {
 }
 Solid {
   translation 1.1 1.8 0.17576455999999993
-  rotation -0.8160420852717016 -6.943249979678113e-15 0.5779924870319795 2.2745293040288138e-17
+  rotation -0.28672884187458547 -1.2567001945129124e-14 0.958011780322799 1.618351003805804e-17
   children [
     Shape {
       appearance Appearance {
