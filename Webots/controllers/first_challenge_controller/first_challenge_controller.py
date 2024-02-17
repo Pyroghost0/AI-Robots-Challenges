@@ -22,24 +22,6 @@ def turn_right():
     right_motor.setVelocity(-max_speed)
 
 
-def drive_forward(angle, inRadians = False): 
-    if inRadians: 
-        angle *= 57.295   #//180/3.14 = 57
-    if angle > 90 or angle < -90:
-        pass
-    elif angle >= 0:
-        left_motor.setVelocity(max_speed)
-        right_motor.setVelocity( max_speed * math.sin((angle + 45) / 28.648) )
-    else:
-        left_motor.setVelocity(max_speed * math.sin((-angle + 45) / 28.648) )
-    right_motor.setVelocity(max_speed)
-
-def turn_camera_up():
-    camera_motor.setVelocity(-max_camera_speed)
-
-def turn_camera_down():
-    camera_motor.setVelocity(max_camera_speed)
-
 def reset_motors():
     left_motor.setVelocity(0)
     right_motor.setVelocity(0)
