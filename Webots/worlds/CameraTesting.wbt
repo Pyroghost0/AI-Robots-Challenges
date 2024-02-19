@@ -12,16 +12,15 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.08627331003112308 0.11949335825145119 0.9890794979727687 1.4979507266164684
-  position -0.17725937294079674 -3.3671496813511754 0.8670878715998545
-  follow "robot"
+  orientation -0.24770661779650935 0.2625903367362494 0.9325705048695017 1.6733255791371697
+  position 1.0622671921550122 -11.14284518033394 5.186016483056747
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
-RectangleArena {
-  floorSize 10 10
+DEF Outer_Fi RectangleArena {
+  floorSize 3 3
   floorTileSize 1 1
   floorAppearance Parquetry {
     type "dark strip"
@@ -31,9 +30,21 @@ RectangleArena {
   wallThickness 0.1
   wallHeight 0.5
 }
-Robot {
-  translation -7.8686683961483e-17 1.0559869605430697e-08 0.22409881952103677
-  rotation -1 2.3943607272710443e-10 -7.261212827556437e-10 4.693315584852316e-08
+RectangleArena {
+  name "rectangle arena(1)"
+  floorSize 0.156576 0.156576
+  floorTileSize 1 1
+  floorAppearance Parquetry {
+    type "dark strip"
+    colorOverride 0 1 0
+    IBLStrength 10
+  }
+  wallThickness 0.001
+  wallHeight 0.001
+}
+DEF RobotResource Robot {
+  translation 3.778813149864163 1.077229037869003e-08 0.2244056746403672
+  rotation -0.9999999953815698 3.977777330629997e-10 -9.610858622912322e-05 4.7848314236612e-08
   children [
     DEF CameraBaseTransform Transform {
       translation -0.01 0 0.2
@@ -347,6 +358,7 @@ Robot {
       }
     }
   ]
+  name "robot(1)"
   boundingObject USE Plate
   physics Physics {
     density -1
@@ -356,29 +368,29 @@ Robot {
 }
 CircleArena {
   translation 0 0 0.001
-  radius 3
+  radius 0.156576
   floorAppearance Parquetry {
     type "dark strip"
     IBLStrength 1000
   }
   floorTileSize 1 1
-  wallThickness 0.25
-  wallHeight 0.01
+  wallThickness 0.005
+  wallHeight 0.0001
   wallAppearance BrushedAluminium {
     colorOverride 0 0 0
   }
 }
 RubberDuck {
-  translation -2.2000349966342423 -7.274060979776156e-13 0.0806132660445559
-  rotation -8.555339916253227e-08 -0.9999999999887604 4.740423771744092e-06 5.08291064717379e-07
+  translation -2.224334249366509 -4.179711230559197e-13 0.0810113073301956
+  rotation 9.838977514502343e-06 -7.971197826043455e-06 -0.9999999999198274 9.957841694344524e-13
   name "Evil duck"
   scale 4
   bodyColor 0.137255 0.439216 1
   immersionProperties []
 }
 Solid {
-  translation 1.1 -1.8 0.17576455999999993
-  rotation -0.28672884187458547 -1.2567001945129124e-14 0.958011780322799 1.618351003805804e-17
+  translation 1.1 -1.8 0.17576498440448401
+  rotation -0.9084892605082175 0.2018865023350296 0.3659086002216401 2.298459301144942e-17
   children [
     Shape {
       appearance Appearance {
@@ -403,8 +415,8 @@ Solid {
   }
 }
 Solid {
-  translation 1.1 1.8 0.17576455999999993
-  rotation -0.28672884187458547 -1.2567001945129124e-14 0.958011780322799 1.618351003805804e-17
+  translation 1.1 1.8 0.17576498440448401
+  rotation -0.9084892605082175 0.2018865023350296 0.3659086002216401 2.298459301144942e-17
   children [
     Shape {
       appearance Appearance {
@@ -429,7 +441,7 @@ Solid {
   }
 }
 Solid {
-  translation 2.2 0 0.17579595199999995
+  translation 0.20149 3.12811e-08 0.175796
   children [
     Shape {
       appearance Appearance {
@@ -440,13 +452,13 @@ Solid {
         }
       }
       geometry Sphere {
-        radius 0.175
+        radius 0.025
       }
     }
   ]
   name "Ball"
   boundingObject Sphere {
-    radius 0.175
+    radius 0.025
   }
   physics Physics {
     density -1
@@ -454,7 +466,7 @@ Solid {
   }
 }
 Solid {
-  translation -1.1 1.8 0.17579595199999995
+  translation -1.1 1.8 0.17579631983332394
   children [
     Shape {
       appearance Appearance {
@@ -479,7 +491,7 @@ Solid {
   }
 }
 Solid {
-  translation -1.1 -1.8 0.17579595199999995
+  translation -1.1 -1.8 0.17579631983332394
   children [
     Shape {
       appearance Appearance {
@@ -502,4 +514,35 @@ Solid {
     density -1
     mass 0.13
   }
+}
+DEF ScaleRobot Robot {
+  translation 0 0 0.12
+  children [
+    DEF TouchSensor_Right TouchSensor {
+      name "touch sensor(1)"
+    }
+    DEF BaseShapes_Group Group {
+      children [
+        DEF BaseShape_Top_Transform Pose {
+        }
+        DEF ModuleShapes_Group Group {
+        }
+        DEF MotorShapes_Group Group {
+        }
+        DEF BaseShape_Floor_Root Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.1143 0.0635 0.1016
+          }
+        }
+      ]
+    }
+    DEF TouchSensor_Left TouchSensor {
+    }
+    DEF CameraArm_HingeJoint HingeJoint {
+    }
+    DEF CameraBase_Transfrom Pose {
+    }
+  ]
 }
