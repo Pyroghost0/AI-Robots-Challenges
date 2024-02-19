@@ -12,8 +12,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2019766190028762 0.057088422974458895 -0.9777250929266652 2.5754461168828024
-  position 0.6633661163849381 0.47313673957983077 0.3757463432395241
+  orientation 0.17904112015074408 -0.0766067993984713 -0.9808545639293774 3.9062615934845484
+  position 0.49787739732096853 -0.40733535627763634 0.2493071372366598
 }
 TexturedBackground {
 }
@@ -86,7 +86,7 @@ DEF RobotResource Robot {
         anchor -0.011 0 0.25
       }
       device [
-        DEF rm RotationalMotor {
+        DEF Camera_RotationalMotor RotationalMotor {
           name "camera_motor_object"
           minPosition -10
           maxPosition 10
@@ -364,7 +364,6 @@ DEF RobotResource Robot {
     density -1
     mass 2
   }
-  controller "Camera_Tester"
 }
 CircleArena {
   translation 0 0 0.001
@@ -516,8 +515,55 @@ Solid {
   }
 }
 DEF ScaleRobot Robot {
-  translation 0 0 0.12
+  translation 0 0 0.07
   children [
+    DEF CameraArm_HingeJoint HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.045 0.028 0.009
+      }
+      device [
+        DEF Camera_RotationalMotor RotationalMotor {
+          name "CameraArm_rotational_motor"
+          minPosition -10
+          maxPosition 10
+        }
+      ]
+      endPoint Solid {
+        rotation 0 1 0 0
+        children [
+          DEF ArmShape3_Transform Pose {
+            translation 0.055 0 0.01
+            children [
+              DEF CameraFlat_Transform Pose {
+                translation 0.022 0 0
+                children [
+                  Camera {
+                    name "CameraArm_camera"
+                  }
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0.196078 0.196078 0.196078
+                    }
+                    geometry Box {
+                      size 0.003 0.025 0.025
+                    }
+                  }
+                ]
+              }
+              Shape {
+                appearance PBRAppearance {
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.045 0.013 0.013
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
     DEF TouchSensor_Right TouchSensor {
       name "touch sensor(1)"
     }
@@ -527,8 +573,8 @@ DEF ScaleRobot Robot {
           children [
             DEF CameraArmShapes_Transforms Group {
               children [
-                DEF ArmShape1_Transform Transform {
-                  translation 0.045 0.02 -0.005
+                DEF ArmShape1_Transform Pose {
+                  translation 0.045 0.02 0.005
                   children [
                     Shape {
                       appearance PBRAppearance {
@@ -540,8 +586,8 @@ DEF ScaleRobot Robot {
                     }
                   ]
                 }
-                DEF ArmShape4_Transform Transform {
-                  translation 0.045 0.01 -0.0005
+                DEF ArmShape4_Transform Pose {
+                  translation 0.045 0.00999996 0.0095
                   rotation 1 0 0 1.5708
                   children [
                     Shape {
@@ -556,34 +602,8 @@ DEF ScaleRobot Robot {
                     }
                   ]
                 }
-                DEF ArmShape3_Transform Transform {
-                  translation 0.055 0 0
-                  children [
-                    DEF CameraFlat_Transform Transform {
-                      translation 0.022 0 0
-                      children [
-                        Shape {
-                          appearance PBRAppearance {
-                            baseColor 0.196078 0.196078 0.196078
-                          }
-                          geometry Box {
-                            size 0.003 0.025 0.025
-                          }
-                        }
-                      ]
-                    }
-                    Shape {
-                      appearance PBRAppearance {
-                        metalness 0
-                      }
-                      geometry Box {
-                        size 0.045 0.013 0.013
-                      }
-                    }
-                  ]
-                }
-                DEF ArmShape2_Transform Transform {
-                  translation 0.045 0.02 -0.002
+                DEF ArmShape2_Transform Pose {
+                  translation 0.045 0.02 0.008
                   children [
                     Shape {
                       appearance PBRAppearance {
@@ -602,124 +622,20 @@ DEF ScaleRobot Robot {
         }
         DEF Track_Group Group {
           children [
-            DEF TrackGroup1_Track Track {
-              translation -0.01 0.045 -0.04
-              children [
-                DEF Front1_TrackWheel TrackWheel {
-                  position 0.03 0
-                  radius 0.0254
-                  children [
-                    DEF Decal_Transform Transform {
-                      rotation 0 0 1 0.7854003061004253
-                      children [
-                        DEF Decal_Square Shape {
-                          appearance PBRAppearance {
-                            baseColor 0.411765 0.411765 0.411765
-                            metalness 0
-                          }
-                          geometry Box {
-                            size 0.018 0.018 0.021
-                          }
-                        }
-                      ]
-                    }
-                    DEF Decal_Square Shape {
-                      appearance PBRAppearance {
-                        baseColor 0.411765 0.411765 0.411765
-                        metalness 0
-                      }
-                      geometry Box {
-                        size 0.018 0.018 0.02
-                      }
-                    }
-                    DEF Wheel_Shape Shape {
-                      appearance PBRAppearance {
-                        baseColor 0.113725 0.113725 0.113725
-                        metalness 0
-                      }
-                      geometry Cylinder {
-                        height 0.017
-                        radius 0.0254
-                      }
-                    }
-                  ]
-                }
-                DEF Back1_TrackWheel TrackWheel {
-                  position -0.03 0
-                  radius 0.0254
-                  children [
-                    DEF Decal_Square Shape {
-                      appearance PBRAppearance {
-                        baseColor 0.411765 0.411765 0.411765
-                        metalness 0
-                      }
-                      geometry Box {
-                        size 0.018 0.018 0.02
-                      }
-                    }
-                    DEF Decal_Transform Transform {
-                      rotation 0 0 1 0.7854003061004253
-                      children [
-                        DEF Decal_Square Shape {
-                          appearance PBRAppearance {
-                            baseColor 0.411765 0.411765 0.411765
-                            metalness 0
-                          }
-                          geometry Box {
-                            size 0.018 0.018 0.021
-                          }
-                        }
-                      ]
-                    }
-                    DEF Wheel_Shape Shape {
-                      appearance PBRAppearance {
-                        baseColor 0.113725 0.113725 0.113725
-                        metalness 0
-                      }
-                      geometry Cylinder {
-                        height 0.017
-                        radius 0.0254
-                      }
-                    }
-                  ]
-                }
-              ]
-              boundingObject Group {
-                children [
-                  Box {
-                    size 0.06 0.016 0.05
-                  }
-                  Pose {
-                    translation 0.03 0 0
-                  }
-                  Pose {
-                    translation -0.03 0 0
-                  }
-                ]
-              }
-              animatedGeometry Shape {
-                appearance PBRAppearance {
-                  baseColor 0 0 0
-                }
-                geometry Box {
-                  size 0.01 0.016 0.001
-                }
-              }
-              geometriesCount 25
-            }
             DEF TrackGroup2_Track Track {
               translation -0.01 -0.045 -0.04
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.03 0
+                  rotation 0.885737353844135 -0.32822899669446737 0.32823020234910255 1.6918381589516869
                   radius 0.0254
                   children [
-                    DEF Decal_Transform Transform {
+                    DEF Decal_Transform Pose {
                       rotation 0 0 1 0.7854003061004253
                       children [
                         DEF Decal_Square Shape {
                           appearance PBRAppearance {
-                            baseColor 0.411765 0.411765 0.411765
+                            baseColor 1 1 0
                             metalness 0
                           }
                           geometry Box {
@@ -730,7 +646,7 @@ DEF ScaleRobot Robot {
                     }
                     DEF Decal_Square Shape {
                       appearance PBRAppearance {
-                        baseColor 0.411765 0.411765 0.411765
+                        baseColor 1 1 0
                         metalness 0
                       }
                       geometry Box {
@@ -751,23 +667,24 @@ DEF ScaleRobot Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
+                  rotation 0.885737353844135 -0.32822899669446737 0.32823020234910255 1.6918381589516869
                   radius 0.0254
                   children [
                     DEF Decal_Square Shape {
                       appearance PBRAppearance {
-                        baseColor 0.411765 0.411765 0.411765
+                        baseColor 1 1 0
                         metalness 0
                       }
                       geometry Box {
                         size 0.018 0.018 0.02
                       }
                     }
-                    DEF Decal_Transform Transform {
+                    DEF Decal_Transform Pose {
                       rotation 0 0 1 0.7854003061004253
                       children [
                         DEF Decal_Square Shape {
                           appearance PBRAppearance {
-                            baseColor 0.411765 0.411765 0.411765
+                            baseColor 1 1 0
                             metalness 0
                           }
                           geometry Box {
@@ -803,6 +720,127 @@ DEF ScaleRobot Robot {
                   }
                 ]
               }
+              physics Physics {
+              }
+              device [
+                LinearMotor {
+                  name "rightMotor"
+                }
+              ]
+              animatedGeometry Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0 0
+                }
+                geometry Box {
+                  size 0.01 0.016 0.001
+                }
+              }
+              geometriesCount 25
+            }
+            DEF TrackGroup1_Track Track {
+              translation -0.01 0.045 -0.04
+              children [
+                DEF Front1_TrackWheel TrackWheel {
+                  position 0.03 0
+                  rotation 0.885737353844135 -0.32822899669446737 0.32823020234910255 1.6918381589516869
+                  radius 0.0254
+                  children [
+                    DEF Decal_Transform Pose {
+                      rotation 0 0 1 0.7854003061004253
+                      children [
+                        DEF Decal_Square Shape {
+                          appearance PBRAppearance {
+                            baseColor 1 1 0
+                            metalness 0
+                          }
+                          geometry Box {
+                            size 0.018 0.018 0.021
+                          }
+                        }
+                      ]
+                    }
+                    DEF Decal_Square Shape {
+                      appearance PBRAppearance {
+                        baseColor 1 1 0
+                        metalness 0
+                      }
+                      geometry Box {
+                        size 0.018 0.018 0.02
+                      }
+                    }
+                    DEF Wheel_Shape Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.113725 0.113725 0.113725
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.017
+                        radius 0.0254
+                      }
+                    }
+                  ]
+                }
+                DEF Back1_TrackWheel TrackWheel {
+                  position -0.03 0
+                  rotation 0.885737353844135 -0.32822899669446737 0.32823020234910255 1.6918381589516869
+                  radius 0.0254
+                  children [
+                    DEF Decal_Square Shape {
+                      appearance PBRAppearance {
+                        baseColor 1 1 0
+                        metalness 0
+                      }
+                      geometry Box {
+                        size 0.018 0.018 0.02
+                      }
+                    }
+                    DEF Decal_Transform Pose {
+                      rotation 0 0 1 0.7854003061004253
+                      children [
+                        DEF Decal_Square Shape {
+                          appearance PBRAppearance {
+                            baseColor 1 1 0
+                            metalness 0
+                          }
+                          geometry Box {
+                            size 0.018 0.018 0.021
+                          }
+                        }
+                      ]
+                    }
+                    DEF Wheel_Shape Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.113725 0.113725 0.113725
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.017
+                        radius 0.0254
+                      }
+                    }
+                  ]
+                }
+              ]
+              boundingObject Group {
+                children [
+                  Box {
+                    size 0.06 0.016 0.05
+                  }
+                  Pose {
+                    translation 0.03 0 0
+                  }
+                  Pose {
+                    translation -0.03 0 0
+                  }
+                ]
+              }
+              physics Physics {
+              }
+              device [
+                LinearMotor {
+                  name "leftMotor"
+                }
+              ]
               animatedGeometry Shape {
                 appearance PBRAppearance {
                   baseColor 0 0 0
@@ -817,23 +855,23 @@ DEF ScaleRobot Robot {
         }
         DEF WheelAxel_Transforms_Group Group {
           children [
-            DEF WheelAxel1_Transform Transform {
+            DEF WheelAxel1_Transform Pose {
               translation 0.025 -0.03 0
             }
-            DEF WheelAxel2_Transform Transform {
+            DEF WheelAxel2_Transform Pose {
               translation 0.025 0.03 0
             }
-            DEF WheelAxel3_Transform Transform {
+            DEF WheelAxel3_Transform Pose {
               translation -0.025 0.03 0
             }
-            DEF WheelAxel4_Transform Transform {
+            DEF WheelAxel4_Transform Pose {
               translation -0.025 -0.03 0
             }
           ]
         }
         DEF BridgeShapes_Group Group {
           children [
-            DEF Bridge1_Transform Transform {
+            DEF Bridge1_Transform Pose {
               translation 0.034 -0.024 -0.034
               children [
                 Shape {
@@ -845,7 +883,7 @@ DEF ScaleRobot Robot {
                 }
               ]
             }
-            DEF Bridge2_Transform Transform {
+            DEF Bridge2_Transform Pose {
               translation 0.034 0.024 -0.034
               children [
                 Shape {
@@ -857,7 +895,7 @@ DEF ScaleRobot Robot {
                 }
               ]
             }
-            DEF Bridge3_Transform Transform {
+            DEF Bridge3_Transform Pose {
               translation -0.05 0.024 -0.01
               children [
                 Shape {
@@ -869,7 +907,7 @@ DEF ScaleRobot Robot {
                 }
               ]
             }
-            DEF Bridge4_Transform Transform {
+            DEF Bridge4_Transform Pose {
               translation -0.05 -0.024 -0.01
               children [
                 Shape {
@@ -885,7 +923,7 @@ DEF ScaleRobot Robot {
         }
         DEF PlatformShapes_Group Group {
           children [
-            DEF Platform_Bottom_Transform Transform {
+            DEF Platform_Bottom_Transform Pose {
               translation 0 0 -0.05
               children [
                 Shape {
@@ -899,13 +937,12 @@ DEF ScaleRobot Robot {
                 }
               ]
             }
-            DEF Platform_Top_Transform Transform {
-              translation 0 0 -0.02
+            DEF Platform_Top_Transform Pose {
+              translation 0 0 -0.0119
               children [
                 Shape {
                   appearance PBRAppearance {
                     baseColor 0.729412 0.486275 0
-                    transparency 0.5
                     metalness 0
                   }
                   geometry Box {
@@ -920,7 +957,7 @@ DEF ScaleRobot Robot {
         }
         DEF MotorShapes_Group Group {
           children [
-            DEF Motor1_Transform Transform {
+            DEF Motor1_Transform Pose {
               translation 0.012 -0.02 -0.039
               children [
                 Shape {
@@ -934,7 +971,7 @@ DEF ScaleRobot Robot {
                 }
               ]
             }
-            DEF Motor2_Transform Transform {
+            DEF Motor2_Transform Pose {
               translation 0.012 0.02 -0.039
               children [
                 Shape {
@@ -964,9 +1001,11 @@ DEF ScaleRobot Robot {
     }
     DEF TouchSensor_Left TouchSensor {
     }
-    DEF CameraArm_HingeJoint HingeJoint {
-    }
-    DEF CameraBase_Transfrom Pose {
-    }
   ]
+  boundingObject Box {
+    size 0.1143 0.0635 0.1016
+  }
+  physics Physics {
+  }
+  controller "Camera_Tester"
 }
