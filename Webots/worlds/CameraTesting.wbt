@@ -12,8 +12,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.17904112015074408 -0.0766067993984713 -0.9808545639293774 3.9062615934845484
-  position 0.49787739732096853 -0.40733535627763634 0.2493071372366598
+  orientation -0.10936894533507163 0.42030304822942804 0.9007684394145618 0.6083062760565062
+  position -0.36344429622766866 -0.241267807400981 0.17323511621687337
 }
 TexturedBackground {
 }
@@ -627,7 +627,7 @@ DEF ScaleRobot Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.03 0
-                  rotation 0.885737353844135 -0.32822899669446737 0.32823020234910255 1.6918381589516869
+                  rotation 0.49190828444998774 -0.6156392837139705 0.6156415450874149 2.2272889481738756
                   radius 0.0254
                   children [
                     DEF Decal_Transform Pose {
@@ -667,7 +667,7 @@ DEF ScaleRobot Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.885737353844135 -0.32822899669446737 0.32823020234910255 1.6918381589516869
+                  rotation 0.49190828444998774 -0.6156392837139705 0.6156415450874149 2.2272889481738756
                   radius 0.0254
                   children [
                     DEF Decal_Square Shape {
@@ -742,7 +742,7 @@ DEF ScaleRobot Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.03 0
-                  rotation 0.885737353844135 -0.32822899669446737 0.32823020234910255 1.6918381589516869
+                  rotation 0.49190828444998774 -0.6156392837139705 0.6156415450874149 2.2272889481738756
                   radius 0.0254
                   children [
                     DEF Decal_Transform Pose {
@@ -782,7 +782,7 @@ DEF ScaleRobot Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.885737353844135 -0.32822899669446737 0.32823020234910255 1.6918381589516869
+                  rotation 0.49190828444998774 -0.6156392837139705 0.6156415450874149 2.2272889481738756
                   radius 0.0254
                   children [
                     DEF Decal_Square Shape {
@@ -872,49 +872,137 @@ DEF ScaleRobot Robot {
         DEF BridgeShapes_Group Group {
           children [
             DEF Bridge1_Transform Pose {
-              translation 0.034 -0.024 -0.034
+              translation 0.034 -0.028 -0.031
               children [
                 Shape {
                   appearance PBRAppearance {
                   }
                   geometry Box {
-                    size 0.006 0.006 0.034
+                    size 0.003 0.003 0.043
                   }
                 }
               ]
             }
             DEF Bridge2_Transform Pose {
-              translation 0.034 0.024 -0.034
+              translation 0.034 0.0266 -0.031
               children [
                 Shape {
                   appearance PBRAppearance {
                   }
                   geometry Box {
-                    size 0.006 0.006 0.034
+                    size 0.003 0.003 0.043
                   }
                 }
               ]
             }
             DEF Bridge3_Transform Pose {
-              translation -0.05 0.024 -0.01
+              translation -0.0531 0.0266 -0.0253
               children [
                 Shape {
                   appearance PBRAppearance {
                   }
                   geometry Box {
-                    size 0.006 0.006 0.08
+                    size 0.003 0.003 0.053
                   }
                 }
               ]
             }
             DEF Bridge4_Transform Pose {
-              translation -0.05 -0.024 -0.01
+              translation -0.0531 -0.028 -0.031
               children [
                 Shape {
                   appearance PBRAppearance {
                   }
                   geometry Box {
-                    size 0.006 0.006 0.08
+                    size 0.003 0.003 0.042
+                  }
+                }
+              ]
+            }
+            DEF Bridge5_Transform Pose {
+              translation -0.0531 -0.0085 -0.0063
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Box {
+                    size 0.003 0.003 0.015
+                  }
+                }
+              ]
+            }
+            DEF BridgeBlock1_Transform Pose {
+              translation 0.0085 0.009 -0.006
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Box {
+                    size 0.016 0.014 0.012
+                  }
+                }
+              ]
+            }
+            DEF BridgeBlock2_Transform Pose {
+              translation 0.0192 0.009 0.01
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Box {
+                    size 0.016 0.036 0.016
+                  }
+                }
+              ]
+            }
+            DEF BridgeBlock2b_Transform Pose {
+              translation 0.0172 0.009 0.004
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Box {
+                    size 0.011 0.034 0.008
+                  }
+                }
+              ]
+            }
+            DEF BridgeBlock2c_Transform Pose {
+              translation 0.0172 0.009 0.015
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Box {
+                    size 0.011 0.034 0.008
+                  }
+                }
+              ]
+            }
+            DEF BridgeBlock3_Transform Pose {
+              translation -0.0331 0.0264 0.0307
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.0588235 0.0588235 0.0588235
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.035 0.004 0.0225
+                  }
+                }
+              ]
+            }
+            DEF BridgeBlock4_Transform Pose {
+              translation -0.0331 0.0264 0.0107
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.0588235 0.0588235 0.0588235
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.035 0.004 0.0225
                   }
                 }
               ]
@@ -954,11 +1042,117 @@ DEF ScaleRobot Robot {
           ]
         }
         DEF ModuleShapes_Group Group {
+          children [
+            DEF Board1_Transform Pose {
+              translation -0.0155 0.009 0
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0.666667 0
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.08 0.04 0.001
+                  }
+                }
+              ]
+            }
+            DEF Board2_Transform Pose {
+              translation -0.0155 0.009 0.019
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0.333333 0.498039
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.08 0.04 0.001
+                  }
+                }
+              ]
+            }
+            DEF Board3_Transform Pose {
+              translation -0.033 0.018 0.042
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0.666667 0
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.0349 0.02 0.001
+                  }
+                }
+              ]
+            }
+            DEF Battery_Transform Pose {
+              translation -0.021 0.009 0.0235
+              children [
+                DEF Battery1_Transform Pose {
+                  translation 6.27732e-07 0.0074 0.005
+                  rotation 0 1 0 1.57086
+                  children [
+                    DEF Battery_Shape Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.666667 0.333333 0
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.05
+                        radius 0.007
+                      }
+                    }
+                  ]
+                  rotationStep 0.26181
+                }
+                DEF Battery2_Transform Pose {
+                  translation 6.27732e-07 -0.0074 0.005
+                  rotation 0 1 0 1.57086
+                  children [
+                    DEF Battery_Shape Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.666667 0.333333 0
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.05
+                        radius 0.007
+                      }
+                    }
+                  ]
+                  rotationStep 0.26181
+                }
+                DEF BatteryBase_Shape Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.109804 0.109804 0.109804
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.064 0.03 0.008
+                  }
+                }
+              ]
+            }
+            DEF PinBlock_Transform Pose {
+              translation -0.0391 0.0118 0.046
+              children [
+                DEF BatteryBase_Shape Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0 1
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.022 0.007 0.008
+                  }
+                }
+              ]
+            }
+          ]
         }
         DEF MotorShapes_Group Group {
           children [
             DEF Motor1_Transform Pose {
-              translation 0.012 -0.02 -0.039
+              translation 0.012 -0.018 -0.036
               children [
                 Shape {
                   appearance PBRAppearance {
@@ -966,13 +1160,13 @@ DEF ScaleRobot Robot {
                     metalness 0
                   }
                   geometry Box {
-                    size 0.037 0.0181428 0.0181428
+                    size 0.037 0.025 0.025
                   }
                 }
               ]
             }
             DEF Motor2_Transform Pose {
-              translation 0.012 0.02 -0.039
+              translation 0.012 0.018 -0.036
               children [
                 Shape {
                   appearance PBRAppearance {
@@ -980,7 +1174,67 @@ DEF ScaleRobot Robot {
                     metalness 0
                   }
                   geometry Box {
-                    size 0.037 0.0181428 0.0181428
+                    size 0.037 0.025 0.025
+                  }
+                }
+              ]
+            }
+            DEF MotorBack1_Transform Pose {
+              translation -0.014 -0.018 -0.036
+              rotation 0 1 0 1.5708
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.235294 0.235294 0.235294
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.03
+                    radius 0.0115
+                  }
+                }
+              ]
+            }
+            DEF MotorBack1_Transform Pose {
+              translation -0.014 0.018 -0.036
+              rotation 0 1 0 1.5708
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.235294 0.235294 0.235294
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.03
+                    radius 0.0115
+                  }
+                }
+              ]
+            }
+            DEF BackWheelAxle1_Transform Pose {
+              translation -0.041 -0.015 -0.038
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 1 0.498039
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.018 0.02 0.023
+                  }
+                }
+              ]
+            }
+            DEF BackWheelAxle1_Transform Pose {
+              translation -0.041 0.015 -0.038
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 1 0.498039
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.018 0.02 0.023
                   }
                 }
               ]
@@ -990,7 +1244,7 @@ DEF ScaleRobot Robot {
         DEF BaseShape_Floor_Root Shape {
           appearance PBRAppearance {
             baseColor 0 0 0.498039
-            transparency 0.5
+            transparency 1
             metalness 0
           }
           geometry Box {
