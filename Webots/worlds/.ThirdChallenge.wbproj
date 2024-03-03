@@ -7,4 +7,5 @@ centralWidgetVisible: 1
 orthographicViewHeight: 1
 textFiles: 0 "controllers/third_challenge_controller/third_challenge_controller.py"
 consoles: Console:All:All
+renderingDevicePerspectives: robot(1):CameraArm_camera;1;1;0;0
 renderingDevicePerspectives: robot:camera;1;1;0;0

@@ -6,7 +6,7 @@ import random
 import math
 
 #Max range of the distance objects move
-MAX_RANGE = 0.12
+MAX_RANGE = 0.1
 
 #Creates supercisor instance of robot
 #The robot itself must have the supervisor value set to true (default false)

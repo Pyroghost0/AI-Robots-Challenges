@@ -282,7 +282,7 @@ DEF ScaleRobot Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.5982193432168241 0.5666265342854657 -0.5666286156247966 2.063377559741865
+                  rotation 0.5982193432168241 0.5666265342854658 -0.5666286156247966 2.063377559741865
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -309,7 +309,7 @@ DEF ScaleRobot Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.5982193432168241 0.5666265342854657 -0.5666286156247966 2.063377559741865
+                  rotation 0.5982193432168241 0.5666265342854658 -0.5666286156247966 2.063377559741865
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -384,7 +384,7 @@ DEF ScaleRobot Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.5982193432168241 0.5666265342854657 -0.5666286156247966 2.063377559741865
+                  rotation 0.8948746518928268 -0.3155935880999833 0.315594747342015 1.6816439235591587
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -411,7 +411,7 @@ DEF ScaleRobot Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.5982193432168241 0.5666265342854657 -0.5666286156247966 2.063377559741865
+                  rotation 0.8948746518928268 -0.3155935880999833 0.315594747342015 1.6816439235591587
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -469,7 +469,7 @@ DEF ScaleRobot Robot {
               }
               device [
                 LinearMotor {
-                  name "leftMotor"
+                  name "rightMotor"
                 }
               ]
               animatedGeometry Shape {

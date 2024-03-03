@@ -2,13 +2,12 @@
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/CementTiles.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BakelitePlastic.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/CircleArena.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/toys/protos/RubberDuck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
 
 WorldInfo {
 }
@@ -26,15 +25,90 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 RectangleArena {
-  floorSize 10 10
+  name "Wooden Floor"
+  floorSize 3 3
   floorTileSize 1 1
   floorAppearance Parquetry {
-    type "dark strip"
-    colorOverride 0 1 0
+    type "light strip"
+    colorOverride 1 0.984314 0.792157
     IBLStrength 10
   }
   wallThickness 0.1
-  wallHeight 0.5
+  wallHeight 0.2
+}
+DEF Mat Pose {
+  translation 0 0 0.001
+  rotation 0 0 1 1.5708
+  children [
+    DEF RedStrip_Group Group {
+      children [
+        DEF RedStrip1_Transform Transform {
+          translation 0 -0.08 0
+          scale 2 2 1
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.65098 0 0
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.1 0.012 0.001
+              }
+            }
+          ]
+        }
+        DEF RedStrip2_Transform Transform {
+          translation 0 0.08 0
+          scale 2 2 1
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.65098 0 0
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.1 0.012 0.001
+              }
+            }
+          ]
+        }
+      ]
+    }
+    DEF ArenaGreen_Shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.196078 0.396078 0.294118
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 1.94 1.94 0.0001
+      }
+    }
+    DEF PerimeterColor_Shape Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 0.8
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.0002
+        radius 0.9144
+      }
+    }
+    DEF ArenaCenterColor_Shape Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0.709804
+        roughness 0.8
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.00025
+        radius 0.85
+      }
+    }
+  ]
 }
 DEF Random_0 Robot {
   translation 0 0 0.326684
@@ -314,20 +388,6 @@ DEF Random_0 Robot {
     mass 2
   }
   controller "sumo_controller"
-}
-CircleArena {
-  translation 0 0 0.1
-  radius 3
-  floorAppearance Parquetry {
-    type "dark strip"
-    IBLStrength 1000
-  }
-  floorTileSize 1 1
-  wallThickness 0.25
-  wallHeight 0.01
-  wallAppearance BrushedAluminium {
-    colorOverride 0 0 0
-  }
 }
 DEF Random_1 RubberDuck {
   translation -2 0 0.178704
