@@ -36,8 +36,8 @@ if __name__ == "__main__":
     max_speed = .35
 
     #Set up motor/track wheels
-    left_motor = robot.getDevice("leftMotor")
-    right_motor = robot.getDevice("rightMotor")
+    left_motor = robot.getDevice("left_motor")
+    right_motor = robot.getDevice("right_motor")
     left_motor.setPosition(math.inf)
     right_motor.setPosition(math.inf)
 

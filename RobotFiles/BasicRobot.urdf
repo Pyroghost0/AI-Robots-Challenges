@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<robot name="C:/Users/wolfg/OneDrive/Documents/GitHub/AI-Robots-Challenges/RobotFiles/BasicRobot.urdf" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.5 0.5 0.35"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.5 0.5 0.35"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="track2">
+    <visual>
+      <origin xyz="0.175 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.175 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.175 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.175 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <box size="0.35 0.1 0.2"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.35 0.1 0.2"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_link_track2_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="track2"/>
+    <origin xyz="0 -0.3 -0.125" rpy="0 0 0"/>
+  </joint>
+  <link name="track1">
+    <visual>
+      <origin xyz="0.175 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.175 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.175 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.175 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <box size="0.35 0.1 0.2"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.35 0.1 0.2"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_link_track1_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="track1"/>
+    <origin xyz="0 0.3 -0.125" rpy="0 0 0"/>
+  </joint>
+  <link name="right sensor">
+    <visual>
+      <geometry>
+        <box size="0.05 0.15 0.15"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.05 0.15 0.15"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_link_right sensor_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="right sensor"/>
+    <origin xyz="0.25 -0.1 0" rpy="0 0 -0.261799"/>
+  </joint>
+  <link name="left sensor">
+    <visual>
+      <geometry>
+        <box size="0.05 0.15 0.15"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.05 0.15 0.15"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_link_left sensor_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="left sensor"/>
+    <origin xyz="0.25 0.1 0" rpy="0 0 0.261799"/>
+  </joint>
+  <link name="Camera Joint">
+  </link>
+  <joint name="base_link_Camera Joint_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="Camera Joint"/>
+    <origin xyz="0 0 0.2" rpy="0 0 0"/>
+  </joint>
+  <joint name="camera motor" type="revolute">
+    <parent link="Camera Joint"/>
+    <child link="solid"/>
+    <axis xyz="-0.000013 1 -0.000029"/>
+    <limit effort="10" lower="0" upper="1.75" velocity="10"/>
+    <origin xyz="0 0 0.05" rpy="-0.016635 1.57 -0.016664"/>
+  </joint>
+  <link name="solid">
+    <visual>
+      <origin xyz="0.000128 -0.000003 0.099987" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.1 0.3"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.000128 -0.000003 0.099987" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.1 0.3"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="camera">
+  </link>
+  <joint name="solid_camera_joint" type="fixed">
+    <parent link="solid"/>
+    <child link="camera"/>
+    <origin xyz="0.000127 -0.000003 0.259987" rpy="-1.570796 -1.570795 -1.570796"/>
+  </joint>
+</robot>
