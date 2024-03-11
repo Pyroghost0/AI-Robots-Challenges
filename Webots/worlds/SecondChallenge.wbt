@@ -4,13 +4,14 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
-EXTERNPROTO "../protos/GrichnickBOX.proto"
+EXTERNPROTO "../protos/Hollow_Box.proto"
+EXTERNPROTO "../protos/Ball_Stand.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2279373797574298 -0.7663693981022254 -0.6006017786868018 5.269139113292596
-  position -0.8397374538365947 -0.7098924838025593 1.0743087145827968
+  orientation 0.2371414730482605 -0.8148612115905516 -0.5289282821003991 5.185422004354393
+  position -1.4489204188499747 -1.0279297012654167 2.118093700667014
 }
 Robot {
   translation 0.1 0 0.1
@@ -227,7 +228,7 @@ DEF Random_0 Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.9462359760524895 0.228732478311477 -0.22873331849444678 1.626035181438544
+                  rotation 0.9462359760524897 0.22873247831147703 -0.2287333184944468 1.626035181438544
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -254,7 +255,7 @@ DEF Random_0 Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.9462359760524895 0.228732478311477 -0.22873331849444678 1.626035181438544
+                  rotation 0.9462359760524897 0.22873247831147703 -0.2287333184944468 1.626035181438544
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -907,7 +908,20 @@ DEF Random_0 Robot {
   }
   controller "second_challenge_controller"
 }
-GrichnickBOX {
-  translation 0 0.2 0.1
-  rotation 1 0 0 3.14159
+DEF Random_1 Hollow_Box {
+  translation 0 0.25 0.05
+  name "box 1"
+}
+DEF Random_2 Hollow_Box {
+  translation 0 -0.25 0.05
+  name "box 2"
+}
+DEF Random_3 Ball_Stand {
+  translation -0.2 0.15 0.01
+}
+DEF Random_4 Ball_Stand {
+  translation -0.2 0 0.01
+}
+DEF Random_5 Ball_Stand {
+  translation -0.2 -0.15 0.01
 }

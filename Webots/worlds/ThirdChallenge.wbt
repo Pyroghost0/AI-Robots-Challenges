@@ -2,18 +2,16 @@
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/CementTiles.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BakelitePlastic.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/toys/protos/RubberDuck.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "../protos/Hollow_Box.proto"
+EXTERNPROTO "../protos/Ball_Stand.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2303457874314101 -0.7972066630111091 -0.5580343669195432 5.233796074663229
-  position -6.700223453149467 -5.021610342979724 9.364354517714757
+  orientation 0.2371414730482605 -0.8148612115905516 -0.5289282821003991 5.185422004354393
+  position -1.4489204188499747 -1.0279297012654167 2.118093700667014
 }
 Robot {
   translation 0.1 0 0.1
@@ -111,8 +109,8 @@ DEF Mat Pose {
     }
   ]
 }
-Robot {
-  translation 0 0 0.1
+DEF Random_0 Robot {
+  translation -0.88 0 0.1
   children [
     DEF CameraArm_HingeJoint HingeJoint {
       jointParameters HingeJointParameters {
@@ -230,7 +228,7 @@ Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.7158056306596938 0.49377145926989274 -0.4937732729971912 1.8990857430835908
+                  rotation 0.9462359760524897 0.22873247831147703 -0.2287333184944468 1.626035181438544
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -257,7 +255,7 @@ Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.7158056306596938 0.49377145926989274 -0.4937732729971912 1.8990857430835908
+                  rotation 0.9462359760524897 0.22873247831147703 -0.2287333184944468 1.626035181438544
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -332,7 +330,7 @@ Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.489135568358757 -0.6167428967522632 0.6167451621796339 2.2317588550777328
+                  rotation 0.21645420887798011 -0.69034197118253 0.6903445069549164 2.7152627687010367
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -359,7 +357,7 @@ Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.489135568358757 -0.6167428967522632 0.6167451621796339 2.2317588550777328
+                  rotation 0.21645420887798011 -0.69034197118253 0.6903445069549164 2.7152627687010367
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -903,425 +901,27 @@ Robot {
       ]
     }
   ]
-  name "robot(1)"
   boundingObject Box {
     size 0.1143 0.0635 0.1016
   }
   physics Physics {
   }
-  controller "first_challenge_controller"
+  controller "third_challenge_controller"
 }
-DEF Random_0 Robot {
-  translation -3.265151524447886 -1.1196801546018577e-05 0.32696027028050706
-  rotation 0.00214637056486509 -0.9999976957805649 -3.907632693541857e-05 0.023547681770623642
-  children [
-    Solid {
-      translation 0 0 0.2
-      children [
-        HingeJoint {
-          jointParameters HingeJointParameters {
-            position 1.5700136496977593
-            axis 0 1 0
-            anchor 0 0 0.05
-          }
-          device [
-            RotationalMotor {
-              name "camera motor"
-              maxPosition 1.75
-            }
-          ]
-          endPoint Solid {
-            translation 0.09998747804019241 -6.170639877511873e-06 0.049950270826792195
-            rotation 8.061202056234594e-06 0.9999999997401012 -2.1326382895984632e-05 1.5700136500734037
-            children [
-              Camera {
-                translation -7.13725e-07 0 0.16
-                rotation 0 1 0 -1.5707953071795862
-              }
-              DEF CameraMount Shape {
-                appearance BakelitePlastic {
-                }
-                geometry Box {
-                  size 0.05 0.1 0.3
-                }
-              }
-            ]
-            boundingObject USE CameraMount
-            physics Physics {
-            }
-          }
-        }
-        Shape {
-          appearance BakelitePlastic {
-          }
-          geometry Box {
-            size 0.05 0.1 0.1
-          }
-        }
-      ]
-      name "Camera Joint"
-      boundingObject Box {
-        size 0.05 0.1 0.025
-      }
-      physics Physics {
-      }
-    }
-    TouchSensor {
-      translation 0.25 0.1 0
-      rotation 0 0 1 0.261799
-      children [
-        DEF TouchSensor Shape {
-          appearance CementTiles {
-          }
-          geometry Box {
-            size 0.05 0.15 0.15
-          }
-        }
-      ]
-      name "left sensor"
-      boundingObject USE TouchSensor
-    }
-    TouchSensor {
-      translation 0.25 -0.1 0
-      rotation 0 0 1 -0.261799
-      children [
-        DEF TouchSensor Shape {
-          appearance CementTiles {
-          }
-          geometry Box {
-            size 0.05 0.15 0.15
-          }
-        }
-      ]
-      name "right sensor"
-      boundingObject USE TouchSensor
-    }
-    Track {
-      translation 0 0.3 -0.125
-      children [
-        TrackWheel {
-          position 0.175 0
-          rotation 0.738065389132137 0.4771047102453981 -0.4771064627804594 1.8699579619815578
-          children [
-            Shape {
-              geometry Box {
-                size 0.1 0.1 0.1
-              }
-            }
-            DEF Sandwhich_Wheel Shape {
-              appearance PBRAppearance {
-              }
-              geometry Cylinder {
-                height 0.05
-                radius 0.1
-              }
-            }
-          ]
-        }
-        TrackWheel {
-          position -0.175 0
-          rotation 0.738065389132137 0.4771047102453981 -0.4771064627804594 1.8699579619815578
-          children [
-            Shape {
-              geometry Box {
-                size 0.1 0.1 0.1
-              }
-            }
-            DEF Sandwhich_Wheel Shape {
-              appearance PBRAppearance {
-              }
-              geometry Cylinder {
-                height 0.05
-                radius 0.1
-              }
-            }
-          ]
-        }
-      ]
-      name "track1"
-      boundingObject Group {
-        children [
-          Pose {
-            translation 0.175 0 0
-            rotation 1 0 0 1.5708
-            children [
-              Cylinder {
-                height 0.1
-                radius 0.1
-              }
-            ]
-          }
-          Pose {
-            translation -0.175 0 0
-            rotation 1 0 0 1.5708
-            children [
-              Cylinder {
-                height 0.1
-                radius 0.1
-              }
-            ]
-          }
-          DEF Track_Box_Shape Box {
-            size 0.35 0.1 0.2
-          }
-        ]
-      }
-      physics Physics {
-      }
-      device [
-        LinearMotor {
-          name "leftMotor"
-        }
-      ]
-      animatedGeometry Shape {
-        appearance Appearance {
-          material Material {
-            diffuseColor 0 0 0
-          }
-        }
-        geometry DEF Track_Box_Shape Box {
-          size 0.05 0.1 0.01
-        }
-      }
-      geometriesCount 25
-    }
-    Track {
-      translation 0 -0.3 -0.125
-      children [
-        TrackWheel {
-          position 0.175 0
-          rotation 0.9706936753735328 0.1699317163904172 -0.16993234051948222 1.6005399472803312
-          children [
-            Shape {
-              geometry Box {
-                size 0.1 0.1 0.1
-              }
-            }
-            DEF Sandwhich_Wheel Shape {
-              appearance PBRAppearance {
-              }
-              geometry Cylinder {
-                height 0.05
-                radius 0.1
-              }
-            }
-          ]
-        }
-        TrackWheel {
-          position -0.175 0
-          rotation 0.9706936753735328 0.1699317163904172 -0.16993234051948222 1.6005399472803312
-          children [
-            Shape {
-              geometry Box {
-                size 0.1 0.1 0.1
-              }
-            }
-            DEF Sandwhich_Wheel Shape {
-              appearance PBRAppearance {
-              }
-              geometry Cylinder {
-                height 0.05
-                radius 0.1
-              }
-            }
-          ]
-        }
-      ]
-      name "track2"
-      boundingObject Group {
-        children [
-          Pose {
-            translation 0.175 0 0
-            rotation 1 0 0 1.5708
-            children [
-              Cylinder {
-                height 0.1
-                radius 0.1
-              }
-            ]
-          }
-          Pose {
-            translation -0.175 0 0
-            rotation 1 0 0 1.5708
-            children [
-              Cylinder {
-                height 0.1
-                radius 0.1
-              }
-            ]
-          }
-          DEF Track_Box_Shape Box {
-            size 0.35 0.1 0.2
-          }
-        ]
-      }
-      physics Physics {
-      }
-      device [
-        LinearMotor {
-          name "rightMotor"
-        }
-      ]
-      animatedGeometry Shape {
-        appearance Appearance {
-          material Material {
-            diffuseColor 0 0 0
-          }
-        }
-        geometry DEF Track_Box_Shape Box {
-          size 0.05 0.1 0.01
-        }
-      }
-      geometriesCount 25
-    }
-    DEF Plate Shape {
-      appearance BrushedAluminium {
-        colorOverride 1 0.5 0.4
-      }
-      geometry Box {
-        size 0.5 0.5 0.35
-      }
-    }
-  ]
-  boundingObject USE Plate
-  physics Physics {
-    density -1
-    mass 2
-  }
-  controller "second_challenge_controller"
+DEF Random_1 Hollow_Box {
+  translation 0 0.25 0.05
+  name "box 1"
 }
-DEF Random_1 RubberDuck {
-  translation -4.160000071485802 0.6900000000000059 0.17870395873447137
-  rotation -8.585428667581192e-08 -0.9999999999999963 1.839386518893504e-12 8.789353257857064e-07
-  name "Evil duck"
-  scale 4
-  bodyColor 0.137255 0.439216 1
-  immersionProperties []
+DEF Random_2 Hollow_Box {
+  translation 0 -0.25 0.05
+  name "box 2"
 }
-DEF Random_2 Solid {
-  translation 1.5430601748674324e-17 -0.9 0.27476199989401995
-  rotation -0.4513974294165372 -0.6018632392220621 -0.6587875241603086 1.5419712613370263e-17
-  children [
-    Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0.533333 0.435294 0.235294
-          emissiveColor 0.533333 0.435294 0.235294
-          specularColor 1 1 1
-        }
-      }
-      geometry Box {
-        size 0.35 0.35 0.35
-      }
-    }
-  ]
-  name "Box"
-  boundingObject Box {
-    size 0.35 0.35 0.35
-  }
-  physics Physics {
-    density -1
-    mass 0.6
-  }
+DEF Random_3 Ball_Stand {
+  translation -0.2 0.25 0.01
 }
-DEF Random_3 Solid {
-  translation -7.773691689713547e-18 0.9 0.27476199989401995
-  rotation -0.6968249309414069 0.34841246547070803 -0.6269320294283315 1.331834980246521e-17
-  children [
-    Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0.533333 0.435294 0.235294
-          emissiveColor 0.533333 0.435294 0.235294
-          specularColor 1 1 1
-        }
-      }
-      geometry Box {
-        size 0.35 0.35 0.35
-      }
-    }
-  ]
-  name "Box(1)"
-  boundingObject Box {
-    size 0.35 0.35 0.35
-  }
-  physics Physics {
-    density -1
-    mass 0.6
-  }
+DEF Random_4 Ball_Stand {
+  translation 0 0 0.01
 }
-DEF Random_4 Solid {
-  translation -0.75 -0.6 0.2747936417718317
-  children [
-    Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0.172549 0.34902 0.521569
-          emissiveColor 0.172549 0.34902 0.521569
-          specularColor 1 1 1
-        }
-      }
-      geometry Sphere {
-        radius 0.175
-      }
-    }
-  ]
-  name "Ball"
-  boundingObject Sphere {
-    radius 0.175
-  }
-  physics Physics {
-    density -1
-    mass 0.13
-  }
-}
-DEF Random_5 Solid {
-  translation -0.75 0 0.2747936417718317
-  children [
-    Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0.172549 0.34902 0.521569
-          emissiveColor 0.172549 0.34902 0.521569
-          specularColor 1 1 1
-        }
-      }
-      geometry Sphere {
-        radius 0.175
-      }
-    }
-  ]
-  name "Ball(1)"
-  boundingObject Sphere {
-    radius 0.175
-  }
-  physics Physics {
-    density -1
-    mass 0.13
-  }
-}
-DEF Random_6 Solid {
-  translation -0.75 0.6 0.2747936417718317
-  children [
-    Shape {
-      appearance Appearance {
-        material Material {
-          diffuseColor 0.172549 0.34902 0.521569
-          emissiveColor 0.172549 0.34902 0.521569
-          specularColor 1 1 1
-        }
-      }
-      geometry Sphere {
-        radius 0.175
-      }
-    }
-  ]
-  name "Ball(2)"
-  boundingObject Sphere {
-    radius 0.175
-  }
-  physics Physics {
-    density -1
-    mass 0.13
-  }
+DEF Random_5 Ball_Stand {
+  translation -0.2 -0.25 0.01
 }
