@@ -7,4 +7,6 @@ centralWidgetVisible: 1
 orthographicViewHeight: 1
 textFiles: 0 "controllers/sumo_controller/sumo_controller.py"
 consoles: Console:All:All
+renderingDevicePerspectives: robot(1):CameraArm_camera;1;1;0;0
+renderingDevicePerspectives: robot:CameraArm_camera;1;1;0;0
 renderingDevicePerspectives: robot:camera;1;2.3125;0;0

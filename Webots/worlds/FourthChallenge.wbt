@@ -20,8 +20,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.30794212004753285 -0.696502060547231 -0.6481176824883674 5.013219937381173
-  position -1.6667264347728403 -2.593247665406891 4.3597508909871365
+  orientation 0.3337159593816898 -0.7945193108554536 -0.5073191531292047 4.832288402515732
+  position -0.4044328550690611 -0.5699843747198036 1.7396713591128572
 }
 TexturedBackground {
 }
@@ -45,9 +45,9 @@ DEF Mat Pose {
   children [
     DEF RedStrip_Group Group {
       children [
-        DEF RedStrip1_Transform Transform {
-          translation 0 -0.08 0
-          scale 2 2 1
+        Transform {
+          translation 0 -0.0508 0
+          scale 0.1016 0.0127 1
           children [
             Shape {
               appearance PBRAppearance {
@@ -56,14 +56,14 @@ DEF Mat Pose {
                 metalness 0
               }
               geometry Box {
-                size 0.1 0.012 0.001
+                size 1 1 0.001
               }
             }
           ]
         }
-        DEF RedStrip2_Transform Transform {
-          translation 0 0.08 0
-          scale 2 2 1
+        Transform {
+          translation 0 0.0508 0
+          scale 0.1016 0.0127 1
           children [
             Shape {
               appearance PBRAppearance {
@@ -72,7 +72,7 @@ DEF Mat Pose {
                 metalness 0
               }
               geometry Box {
-                size 0.1 0.012 0.001
+                size 1 1 0.001
               }
             }
           ]
@@ -86,7 +86,7 @@ DEF Mat Pose {
         metalness 0
       }
       geometry Box {
-        size 1.94 1.94 0.0001
+        size 0.9652 0.9652 0.0001
       }
     }
     DEF PerimeterColor_Shape Shape {
@@ -97,7 +97,7 @@ DEF Mat Pose {
       }
       geometry Cylinder {
         height 0.0002
-        radius 0.9144
+        radius 0.4572
       }
     }
     DEF ArenaCenterColor_Shape Shape {
@@ -108,13 +108,13 @@ DEF Mat Pose {
       }
       geometry Cylinder {
         height 0.00025
-        radius 0.85
+        radius 0.4318
       }
     }
   ]
 }
 Robot {
-  translation -0.88 0 0.1
+  translation -0.45 0 0.075
   rotation 0 0 1 -1.5708
   children [
     DEF CameraArm_HingeJoint HingeJoint {
@@ -916,7 +916,7 @@ Robot {
 Robot {
   children [
     TouchSensor {
-      translation -0.88 0 0.1
+      translation -0.44 0 0.1
       children [
         Shape {
           appearance PBRAppearance {

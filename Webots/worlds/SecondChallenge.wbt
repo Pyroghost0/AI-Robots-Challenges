@@ -6,12 +6,13 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
 EXTERNPROTO "../protos/Hollow_Box.proto"
 EXTERNPROTO "../protos/Ball_Stand.proto"
+EXTERNPROTO "../protos/Evil_Duck.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2371414730482605 -0.8148612115905516 -0.5289282821003991 5.185422004354393
-  position -1.4489204188499747 -1.0279297012654167 2.118093700667014
+  orientation 0.2418795317173857 -0.8914070229821066 -0.38325945717536647 4.959498842983763
+  position -0.5085859590035353 -0.3831595819798037 1.4572736623728948
 }
 Robot {
   translation 0.1 0 0.1
@@ -41,9 +42,9 @@ DEF Mat Pose {
   children [
     DEF RedStrip_Group Group {
       children [
-        DEF RedStrip1_Transform Transform {
-          translation 0 -0.08 0
-          scale 2 2 1
+        Transform {
+          translation 0 -0.0508 0
+          scale 0.1016 0.0127 1
           children [
             Shape {
               appearance PBRAppearance {
@@ -52,14 +53,14 @@ DEF Mat Pose {
                 metalness 0
               }
               geometry Box {
-                size 0.1 0.012 0.001
+                size 1 1 0.001
               }
             }
           ]
         }
-        DEF RedStrip2_Transform Transform {
-          translation 0 0.08 0
-          scale 2 2 1
+        Transform {
+          translation 0 0.0508 0
+          scale 0.1016 0.0127 1
           children [
             Shape {
               appearance PBRAppearance {
@@ -68,7 +69,7 @@ DEF Mat Pose {
                 metalness 0
               }
               geometry Box {
-                size 0.1 0.012 0.001
+                size 1 1 0.001
               }
             }
           ]
@@ -82,7 +83,7 @@ DEF Mat Pose {
         metalness 0
       }
       geometry Box {
-        size 1.94 1.94 0.0001
+        size 0.9652 0.9652 0.0001
       }
     }
     DEF PerimeterColor_Shape Shape {
@@ -93,7 +94,7 @@ DEF Mat Pose {
       }
       geometry Cylinder {
         height 0.0002
-        radius 0.9144
+        radius 0.4572
       }
     }
     DEF ArenaCenterColor_Shape Shape {
@@ -104,13 +105,13 @@ DEF Mat Pose {
       }
       geometry Cylinder {
         height 0.00025
-        radius 0.85
+        radius 0.4318
       }
     }
   ]
 }
 DEF Random_0 Robot {
-  translation -0.88 0 0.1
+  translation -0.5 0 0.075
   children [
     DEF CameraArm_HingeJoint HingeJoint {
       jointParameters HingeJointParameters {
@@ -228,7 +229,7 @@ DEF Random_0 Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.9462359760524897 0.22873247831147703 -0.2287333184944468 1.626035181438544
+                  rotation 0.9462359760524895 0.228732478311477 -0.22873331849444678 1.626035181438544
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -255,7 +256,7 @@ DEF Random_0 Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.9462359760524897 0.22873247831147703 -0.2287333184944468 1.626035181438544
+                  rotation 0.9462359760524895 0.228732478311477 -0.22873331849444678 1.626035181438544
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -909,19 +910,22 @@ DEF Random_0 Robot {
   controller "second_challenge_controller"
 }
 DEF Random_1 Hollow_Box {
-  translation 0 0.25 0.05
+  translation 0 0.15 0.05
   name "box 1"
 }
 DEF Random_2 Hollow_Box {
-  translation 0 -0.25 0.05
+  translation 0 -0.15 0.05
   name "box 2"
 }
 DEF Random_3 Ball_Stand {
-  translation -0.2 0.15 0.01
+  translation -0.125 0.11 0.01
 }
 DEF Random_4 Ball_Stand {
-  translation -0.2 0 0.01
+  translation -0.125 0 0.01
 }
 DEF Random_5 Ball_Stand {
-  translation -0.2 -0.15 0.01
+  translation -0.1254 -0.11 0.01
+}
+DEF Random_6 Evil_Duck {
+  translation -0.66 0 0
 }

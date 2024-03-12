@@ -18,7 +18,7 @@ PROTO Ball_Stand [
             metalness 0
           }
           geometry Sphere {
-            radius 0.035
+            radius 0.025
           }
         }
       ]

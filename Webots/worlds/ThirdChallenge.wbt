@@ -6,12 +6,13 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
 EXTERNPROTO "../protos/Hollow_Box.proto"
 EXTERNPROTO "../protos/Ball_Stand.proto"
+EXTERNPROTO "../protos/Evil_Duck.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2371414730482605 -0.8148612115905516 -0.5289282821003991 5.185422004354393
-  position -1.4489204188499747 -1.0279297012654167 2.118093700667014
+  orientation 0.2333925604794196 -0.869936124561405 -0.4344410798899479 5.0828675895590605
+  position -0.9561391365940323 -0.6459936246519592 1.8908087287545523
 }
 Robot {
   translation 0.1 0 0.1
@@ -41,9 +42,9 @@ DEF Mat Pose {
   children [
     DEF RedStrip_Group Group {
       children [
-        DEF RedStrip1_Transform Transform {
-          translation 0 -0.08 0
-          scale 2 2 1
+        Transform {
+          translation 0 -0.0508 0
+          scale 0.1016 0.0127 1
           children [
             Shape {
               appearance PBRAppearance {
@@ -52,14 +53,14 @@ DEF Mat Pose {
                 metalness 0
               }
               geometry Box {
-                size 0.1 0.012 0.001
+                size 1 1 0.001
               }
             }
           ]
         }
-        DEF RedStrip2_Transform Transform {
-          translation 0 0.08 0
-          scale 2 2 1
+        Transform {
+          translation 0 0.0508 0
+          scale 0.1016 0.0127 1
           children [
             Shape {
               appearance PBRAppearance {
@@ -68,7 +69,7 @@ DEF Mat Pose {
                 metalness 0
               }
               geometry Box {
-                size 0.1 0.012 0.001
+                size 1 1 0.001
               }
             }
           ]
@@ -82,7 +83,7 @@ DEF Mat Pose {
         metalness 0
       }
       geometry Box {
-        size 1.94 1.94 0.0001
+        size 0.9652 0.9652 0.0001
       }
     }
     DEF PerimeterColor_Shape Shape {
@@ -93,7 +94,7 @@ DEF Mat Pose {
       }
       geometry Cylinder {
         height 0.0002
-        radius 0.9144
+        radius 0.4572
       }
     }
     DEF ArenaCenterColor_Shape Shape {
@@ -104,13 +105,13 @@ DEF Mat Pose {
       }
       geometry Cylinder {
         height 0.00025
-        radius 0.85
+        radius 0.4318
       }
     }
   ]
 }
 DEF Random_0 Robot {
-  translation -0.88 0 0.1
+  translation -0.5 0 0.075
   children [
     DEF CameraArm_HingeJoint HingeJoint {
       jointParameters HingeJointParameters {
@@ -909,19 +910,22 @@ DEF Random_0 Robot {
   controller "third_challenge_controller"
 }
 DEF Random_1 Hollow_Box {
-  translation 0 0.25 0.05
+  translation 0 0.15 0.05
   name "box 1"
 }
 DEF Random_2 Hollow_Box {
-  translation 0 -0.25 0.05
+  translation 0 -0.15 0.05
   name "box 2"
 }
 DEF Random_3 Ball_Stand {
-  translation -0.2 0.25 0.01
+  translation -0.125 0.125 0.01
 }
 DEF Random_4 Ball_Stand {
   translation 0 0 0.01
 }
 DEF Random_5 Ball_Stand {
-  translation -0.2 -0.25 0.01
+  translation -0.125 -0.125 0.01
+}
+DEF Random_6 Evil_Duck {
+  translation -0.66 0 0
 }
