@@ -3,7 +3,6 @@ from controller import Motor
 import math
 
 
-
 # High level functions
 def move_forward(): 
     left_motor.setVelocity(max_speed)
@@ -17,11 +16,9 @@ def turn_left():
     left_motor.setVelocity(-max_speed)
     right_motor.setVelocity(max_speed)
 
-
 def turn_right(): 
     left_motor.setVelocity(max_speed)
     right_motor.setVelocity(-max_speed)
-
 
 def drive_forward(angle, inRadians = False): 
     if inRadians: 
@@ -33,71 +30,63 @@ def drive_forward(angle, inRadians = False):
         right_motor.setVelocity( max_speed * math.sin((angle + 45) / 28.648) )
     else:
         left_motor.setVelocity(max_speed * math.sin((-angle + 45) / 28.648) )
-        right_motor.setVelocity(max_speed)
+    right_motor.setVelocity(max_speed)
 
-def turn_camera_up():
-    camera_motor.setVelocity(-max_camera_speed)
-
-def turn_camera_down():
-    camera_motor.setVelocity(max_camera_speed)
+def set_camera_position(rotation):
+    camera_motor.setPosition(rotation)
+    
+def get_camera_position():
+    return camera_motor.getTargetPosition()
 
 def reset_motors():
     left_motor.setVelocity(0)
     right_motor.setVelocity(0)
     camera_motor.setVelocity(0)
-
-
+    
+    
+#--------------------main function--------------------
 if __name__ == "__main__":
     #Create the Robot instance.
     robot = Robot()
     
     #Variables
     time_step = 64
-    max_speed = .5
-    max_camera_speed = 2.0
-
+    max_speed = 0.5
+    camera_min_position =  0.65 #lowest position
+    camera_max_position = -1 #highest position
+    camera_default_position = 0 #base position
+    
     #Set up motor/track wheels
     left_motor = robot.getDevice("leftMotor")
     right_motor = robot.getDevice("rightMotor")
     left_motor.setPosition(math.inf)
     right_motor.setPosition(math.inf)
-
-    #Set up touch sensors
-    left_sensor = robot.getDevice("left sensor")
-    right_sensor = robot.getDevice("right sensor")
-    left_sensor.enable(time_step)
-    right_sensor.enable(time_step)
-
+    left_motor.setVelocity(0)
+    right_motor.setVelocity(0)
+    
     #Set up camera and camera motor
-    camera = robot.getDevice("camera")
+    camera = robot.getDevice("CameraArm_camera")
     camera.enable(time_step)
-    camera_motor = robot.getDevice("camera motor")
-    camera_motor.setPosition(math.inf)
-    camera_motor.setVelocity(0.0)
-    reset_motors()
-
-    #Local variables
     width = camera.getWidth()
     height = camera.getWidth()
+    
+    #Setting maximum rotational values of camera motor
+    camera_motor = robot.getDevice("CameraArm_rotational_motor")
+    camera_motor.maxPosition = camera_max_position
+    camera_motor.minPosition = camera_min_position
 
-    #Robot AI goes here
-
+    #Main Loop while simulation is running
     while robot.step(time_step) != -1:
-        #Gets the RGB of the bottom middle pixel on the camera
-        #Note: Python issues with ImageGet'Color', C++ allowed float value indices but Python does not
-        red = camera.imageGetRed(camera.getImage(), int(width), int(width / 2), int(height - 1))
-        green = camera.imageGetGreen(camera.getImage(), int(width), int(width / 2), int(height - 1))
-        blue = camera.imageGetBlue(camera.getImage(), int(width), int(width / 2), int(height - 1))
+        #Code goes here
         
-        #Print any test messages here
-        print("Red: " + str(red) + 
-        ", Green: " + str(green) + 
-        ", Blue: " + str(blue))
+        #RGB Values for debugging center pixel
+        red = camera.imageGetRed(camera.getImage(), int(width), int(width / 2), int(height / 2))
+        green = camera.imageGetGreen(camera.getImage(), int(width), int(width / 2), int(height / 2))
+        blue = camera.imageGetBlue(camera.getImage(), int(width), int(width / 2), int(height / 2))
+        print("Red: " + str(red) + ", Green: " + str(green) + ", Blue: " + str(blue))
         
-
-        #move_forward()
-    
-    
+        pass #end of code region
+                
     #End of AI
     reset_motors()
     del robot

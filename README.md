@@ -21,7 +21,11 @@ This GitHub is public read-only, meaning any changes will be saved locally. If y
 
 Go to the Webot's website [https://cyberbotics.com/](https://cyberbotics.com/) and click the download button.
 
+<img src="Images\Tutorial1.png" width = "500" >
+
 If you aren't on Windows, click the arrow next to the download button to specify the type of installer you need.
+
+<img src="Images\Tutorial2.gif" width = "500" >
 
 * Run the installer you just downloaded
   * On Windows, you'll get the "Windows protected your PC" prompt. Click "More info," then "Run anyway"
@@ -54,6 +58,8 @@ After practicing moving the camera, let's look at other ways to control the simu
 * To the left of that, click the |<< button or the reset simulation button
   * If the simulation was paused before you reset it, it will stay paused until you press play again
 <br />
+
+<img src="Images\Tutorial3.gif" width = "500" >
 
 To the left of the simulation, you have all your objects, and to the right, you have the built-in text editor for your robot. In the next section, where you are moving the robot, we will cover how to use them.
 
@@ -90,6 +96,8 @@ To understand how Webots works, understanding the node system is essential. Node
 
 Objects, such as robots and boxes, in Webots are nodes. The children of those nodes are the properties of the parent nodes. Now that we have a solid object, let's specify its shape by changing the properties.
 
+<img src="Images/Example2.gif" width = "500" >
+
 * Inside the Shape dropdown, add a node to the "geometry" node by double-clicking it and selecting "Box" under the Base Nodes dropdown
 * Inside the geometry box, select "size" and set the size values to .25m in all X, Y, and Z variables
 * Add a node to the "appearance" by double-clicking it and selecting "Appearance" under the Base Nodes dropdown
@@ -106,18 +114,18 @@ Let's start coding using the built-in IDE on the right window.
 
 Webots programming works by getting a reference to each motor through code and then telling it what to do. Those motors will continuously do that task until given a new command. Webots lets you wait time as a function in the code, so you don't need to tell the motor what you want it to do constantly.
 
-If you look at the code, you can see that I made the functions move_forward(), move_back(), turn_left(), and turn_right(), which tell the motors to rotate. Let's use these functions to write a robot that moves forward. The robot AI starts on line 65.
+If you look at the code, you can see that I made the functions move_forward(), move_back(), turn_left(), and turn_right(), which tell the motors to rotate. Let's use these functions to write a robot that moves forward. The robot AI starts on line 45.
 
-* On line 66, the robot only waits one step, which isn't enough to move forward. Let's change that to 25 steps by changing the line to
+* On line 47, the robot only waits one step, which isn't enough to move forward. Let's change that to 10 steps by changing the line to
 ```sh
-robot.step(time_step * 25)
+robot.step(time_step * 10)
 ```
 * Save the code by pressing Ctr+S or hitting the save button on the top
 * Hit the |<< button to reset the simulation and try your new code
   * When the simulation reloads, it saves the paused state of the simulation. If the robot doesn't move, press the > button on the top to resume the simulation.
 <br />
 
-<img src="Images/Example2.gif" width = "500" >
+<img src="Images/Example3.gif" width = "500" >
 
 Now that you know the basics for coding, try the week 10 bonus point challenge. The goal is to move the robot in a forward square, then make a square moving backward, landing on the starting placement.
 
@@ -146,7 +154,7 @@ Once you've completed the challenge, if there is extra credit, you can move Evil
 
 Since the previous challenge, more functions have been added. DriveForward(angle) drives the robot at an angle. TurnCameraUp()/TurnCameraDown() turns the camera. These functions aren't necessary but are beneficial to know.
 
-The AI starts on line 83, with a while loop that prints the RGB of the center bottom pixel of the camera. This is done by the imageGetColor(Image, width, x, y) function. You can change the X and Y of the function from what was previously written to change which pixel the camera is looking at. Additionally, you can see the camera video in the top left corner of the simulation window.
+The AI starts on line 79, with a while loop that prints the RGB of the center bottom pixel of the camera. This is done by the imageGetColor(Image, width, x, y) function. You can change the X and Y of the function from what was previously written to change which pixel the camera is looking at. Additionally, you can see the camera video in the top left corner of the simulation window.
 
 <img src="Images/Challenge2.png" width = "500" >
 

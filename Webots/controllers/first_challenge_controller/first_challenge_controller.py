@@ -16,17 +16,16 @@ def turn_left():
     left_motor.setVelocity(-max_speed)
     right_motor.setVelocity(max_speed)
 
-
 def turn_right(): 
     left_motor.setVelocity(max_speed)
     right_motor.setVelocity(-max_speed)
 
-
 def reset_motors():
     left_motor.setVelocity(0)
     right_motor.setVelocity(0)
-    
-#Main    
+
+
+#--------------------main function--------------------
 if __name__ == "__main__":
     # create the Robot instance.
     robot = Robot()
@@ -45,7 +44,7 @@ if __name__ == "__main__":
     
     #Robot AI goes here **************
     move_forward()
-    robot.step(time_step)
+    robot.step(time_step * 10)
     
     #End of AI
     
