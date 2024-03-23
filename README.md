@@ -10,7 +10,7 @@ To see more details on how to use Webots, expand one of the following pages.
 
  ## GitHub Setup
  
-This GitHub is public read-only, meaning any changes will be saved locally. If you don't want a backup, clone this GitHub to your device by downloading or cloning it to GitHub desktop. If you want backups of your files, such as your robot algorithm/code, through Github, you will need to fork this repository.
+This GitHub is public read-only, meaning any changes will be saved locally. If you don't want a backup, clone this GitHub to your device by downloading or cloning it to GitHub desktop. If you want backups of your files, such as your robot algorithm/code, through Github, you will need to fork this repository as follows.
  
  * In the top right corner of this GitHub, hit the fork button
  * Scroll down and click "Create Fork"
