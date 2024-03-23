@@ -221,7 +221,7 @@ Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.8239305897173915 -0.40071012198408223 0.40071159387700944 1.7632694717923112
+                  rotation 0.9809625387614002 0.13731780478319455 -0.1373183091809433 1.590019822840043
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -248,7 +248,7 @@ Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.8239305897173915 -0.40071012198408223 0.40071159387700944 1.7632694717923112
+                  rotation 0.9809625387614002 0.13731780478319455 -0.1373183091809433 1.590019822840043
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -323,7 +323,7 @@ Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.2761856057792861 0.6796021329209951 -0.6796046292437703 2.602658289352079
+                  rotation 0.1459849593119375 -0.6995301268463507 0.6995326963688119 2.851671776734816
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -350,7 +350,7 @@ Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.2761856057792861 0.6796021329209951 -0.6796046292437703 2.602658289352079
+                  rotation 0.1459849593119375 -0.6995301268463507 0.6995326963688119 2.851671776734816
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {

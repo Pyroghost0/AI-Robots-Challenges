@@ -44,7 +44,7 @@ if __name__ == "__main__":
     
     #Robot AI goes here **************
     move_forward()
-    robot.step(time_step * 10)
+    robot.step(time_step)
     
     #End of AI
     
