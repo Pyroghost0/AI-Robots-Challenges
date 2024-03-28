@@ -5,9 +5,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
 EXTERNPROTO "../protos/Evil_Duck.proto"
-EXTERNPROTO "../protos/ballStand.proto"
+EXTERNPROTO "../protos/Ball_Stand.proto"
 EXTERNPROTO "../protos/Hollow_Box.proto"
-EXTERNPROTO "../protos/ball.proto"
 
 WorldInfo {
 }
@@ -912,29 +911,20 @@ DEF Random_0 Robot {
 DEF Random_1 Evil_Duck {
   translation -0.35 0 0
 }
-DEF Random_2 ballStand {
+DEF Random_2 Ball_Stand {
   translation -0.15 -0.3 0.01
 }
 DEF Random_3 Hollow_Box {
   translation 0.15 -0.3 0.05
   name "box 1"
 }
-DEF Random_4 ballStand {
+DEF Random_4 Ball_Stand {
   translation 0.35 0 0.01
 }
 DEF Random_5 Hollow_Box {
   translation 0.15 0.3 0.05
   name "box 1(1)"
 }
-DEF Random_6 ballStand {
+DEF Random_6 Ball_Stand {
   translation -0.15 0.3 0.01
-}
-DEF Random_7 ball {
-  translation -0.15 -0.3 0.035
-}
-DEF Random_8 ball {
-  translation 0.35 0 0.035
-}
-DEF Random_9 ball {
-  translation -0.15 0.3 0.035
 }
