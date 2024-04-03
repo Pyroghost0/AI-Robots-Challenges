@@ -30,7 +30,7 @@ def drive_forward(angle, inRadians = False):
         right_motor.setVelocity( max_speed * math.sin((angle + 45) / 28.648) )
     else:
         left_motor.setVelocity(max_speed * math.sin((-angle + 45) / 28.648) )
-    right_motor.setVelocity(max_speed)
+        right_motor.setVelocity(max_speed)
 
 def set_camera_position(rotation):
     camera_motor.setPosition(rotation)
