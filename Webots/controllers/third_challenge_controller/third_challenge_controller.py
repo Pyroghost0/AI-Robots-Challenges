@@ -43,7 +43,7 @@ def reset_motors():
     right_motor.setVelocity(0)
     camera_motor.setVelocity(0)
     
-    
+
 #--------------------main function--------------------
 if __name__ == "__main__":
     #Create the Robot instance.
@@ -75,6 +75,9 @@ if __name__ == "__main__":
     camera_motor.maxPosition = camera_max_position
     camera_motor.minPosition = camera_min_position
 
+    #Set random duck placement (change to 'True' or 'False')
+    robot.custom_data = 'False'
+    
     #Main Loop while simulation is running
     while robot.step(time_step) != -1:
         #Code goes here

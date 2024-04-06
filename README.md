@@ -144,7 +144,7 @@ Now that you know the basics for coding in the simulation, try the Hysteresis/We
 
 For more realism, each simulation will move objects randomly within the challenge guidelines to simulate real-world randomness.
 
-Once you've completed the challenge, if there is extra credit, you can move the 'Evil Duck' object into the acceptable area range detailed, and save the simulation by pressing Ctr+Shift+S or the save icon at the top left of the interface.
+Once you've completed the challenge, if there is extra credit, you can move the 'Evil Duck' object into the acceptable area range detailed manually. Additionally, you can turn on random placement by change robot.custom_data to 'true' right above your main code on line 79
 
 ## Coding the Camera
 
@@ -153,7 +153,7 @@ Once you've completed the challenge, if there is extra credit, you can move the 
 
 Since the previous challenge, more functions have been added for your convenience. The 'DriveForward(angle)' function drives the robot at an angle, while 'TurnCameraUp()' and 'TurnCameraDown()' turns the camera. These functions aren't necessary but are beneficial to know.
 
-The AI starts on line 79, with a while loop that prints the RGB of the center bottom pixel of the camera. This is done by the 'imageGetColor(Image, width, x, y)' function. You can override the x and y values of the function call to change which pixel the camera is looking at. Additionally, you can see the camera video in the top left corner of the simulation window.
+The AI starts on line 82, with a while loop that prints the RGB of the center bottom pixel of the camera. This is done by the 'imageGetColor(Image, width, x, y)' function. You can override the x and y values of the function call to change which pixel the camera is looking at. Additionally, you can see the camera video in the top left corner of the simulation window.
 
 <img src="Images/Challenge2.png" width = "500" >
 
@@ -193,7 +193,7 @@ Word settings like contact properties change how objects interact with each othe
 
 Supervisors are Robot classes that can monitor, edit, and spawn other objects
 * [Supervisor Robot Tutorial](https://cyberbotics.com/doc/guide/tutorial-8-the-supervisor?tab-language=python)
-* [Supervisor Robot Documentation](https://forms.gle/rBniEH7UuqJXANCg7](https://www.cyberbotics.com/doc/reference/supervisor?tab-language=python)https://www.cyberbotics.com/doc/reference/supervisor?tab-language=python)
+* [Supervisor Robot Documentation](https://www.cyberbotics.com/doc/reference/supervisor?tab-language=python)
 <br />
 
 Only tutorial for track wheels I found (in Japanese)

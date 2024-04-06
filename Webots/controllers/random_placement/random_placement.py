@@ -12,6 +12,8 @@ MAX_RANGE = 0.01
 #The robot itself must have the supervisor value set to true (default false)
 robot = Supervisor()
 
+robot.step(64)
+
 #Start randomising placement
 i = 0;
 while True:
@@ -38,3 +40,20 @@ while True:
     node.resetPhysics()
     i+=1
 
+node = robot.getFromDef('Random_0')
+if node.getField('customData').getSFString() == 'true' or node.getField('customData').getSFString() == 'True':
+    
+    node = robot.getFromDef('Random_' + str(i-1))
+    translation_field = node.getField('translation')
+    
+    position = [.15, 0.0, node.getPosition()[2]];
+    angle = random.uniform(0.0, 3.14159265358)#Spawn in half circle
+    distance = random.uniform(0.0, 1.0)
+    
+    #Sets value and incliments to next random node
+    new_value = [math.sin(angle) * distance * .25 + position[0], 
+    math.cos(angle) * distance * .38 + position[1], position[2]]
+    translation_field.setSFVec3f(new_value)
+    rotation_field = node.getField('rotation')
+    rotation_field.setSFRotation([0.0, 0.0, 1.0, random.uniform(0.0, 6.28318530718)])
+    node.resetPhysics()
