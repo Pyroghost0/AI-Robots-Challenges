@@ -113,7 +113,7 @@ DEF Mat Pose {
     }
   ]
 }
-Robot {
+DEF robot Robot {
   translation -0.45 0 0.075
   rotation 0 0 1 -1.5708
   children [
@@ -233,7 +233,7 @@ Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.3447493422200712 -0.6637562257360572 0.6637586638496348 2.477615843516659
+                  rotation 0.1879467674552656 0.6945043085368339 -0.6945068595967145 2.7700349686733268
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -260,7 +260,7 @@ Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.3447493422200712 -0.6637562257360572 0.6637586638496348 2.477615843516659
+                  rotation 0.1879467674552656 0.6945043085368339 -0.6945068595967145 2.7700349686733268
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -335,7 +335,7 @@ Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.7586700504731667 0.46066158703298055 -0.4606632791392192 1.8435424142121075
+                  rotation 0.830733864222847 -0.39362425520804034 0.39362570107310313 1.7551918630738597
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -362,7 +362,7 @@ Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.7586700504731667 0.46066158703298055 -0.4606632791392192 1.8435424142121075
+                  rotation 0.830733864222847 -0.39362425520804034 0.39362570107310313 1.7551918630738597
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -914,31 +914,7 @@ Robot {
   controller "fourth_challenge_controller"
 }
 Robot {
-  children [
-    TouchSensor {
-      translation -0.44 0 0.1
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 1 0
-            transparency 1
-            roughness 1
-            metalness 0
-          }
-          geometry Box {
-            size 0.5 0.025 0.025
-          }
-        }
-      ]
-      name "GateSensor"
-      contactMaterial "GateSensor"
-      boundingObject Box {
-        size 0.5 0.025 0.025
-      }
-      locked TRUE
-    }
-  ]
-  name "GateSensor"
-  contactMaterial "GateSensor"
-  controller "gate_controller"
+  name "Robot Tracker"
+  controller "robot_tracker"
+  supervisor TRUE
 }
