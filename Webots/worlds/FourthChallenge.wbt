@@ -4,6 +4,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "../protos/Evil_Duck.proto"
 
 WorldInfo {
   contactProperties [
@@ -20,8 +21,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.3337159593816898 -0.7945193108554536 -0.5073191531292047 4.832288402515732
-  position -0.4044328550690611 -0.5699843747198036 1.7396713591128572
+  orientation 0.29619611011976155 -0.6997981031369025 -0.6500388289909421 5.05363734708006
+  position -0.6908039495696112 -0.8447025601501341 1.3813297669025275
 }
 TexturedBackground {
 }
@@ -233,7 +234,7 @@ DEF robot Robot {
               children [
                 DEF Front1_TrackWheel TrackWheel {
                   position 0.0335 0
-                  rotation 0.1879467674552656 0.6945043085368339 -0.6945068595967145 2.7700349686733268
+                  rotation 0.18794676745526576 0.6945043085368339 -0.6945068595967145 2.7700349686733268
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -260,7 +261,7 @@ DEF robot Robot {
                 }
                 DEF Back1_TrackWheel TrackWheel {
                   position -0.03 0
-                  rotation 0.1879467674552656 0.6945043085368339 -0.6945068595967145 2.7700349686733268
+                  rotation 0.18794676745526576 0.6945043085368339 -0.6945068595967145 2.7700349686733268
                   radius 0.03
                   children [
                     DEF Decal_Cylinder Shape {
@@ -917,4 +918,7 @@ Robot {
   name "Robot Tracker"
   controller "robot_tracker"
   supervisor TRUE
+}
+Evil_Duck {
+  translation 0.44 0 0.02
 }
