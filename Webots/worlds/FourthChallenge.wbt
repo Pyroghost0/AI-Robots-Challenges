@@ -24,6 +24,11 @@ Viewpoint {
   orientation 0.29619611011976155 -0.6997981031369025 -0.6500388289909421 5.05363734708006
   position -0.6908039495696112 -0.8447025601501341 1.3813297669025275
 }
+Robot {
+  name "1 Random Placement"
+  controller "random_placement"
+  supervisor TRUE
+}
 TexturedBackground {
 }
 TexturedBackgroundLight {
@@ -114,7 +119,7 @@ DEF Mat Pose {
     }
   ]
 }
-DEF robot Robot {
+DEF Random_0 Robot {
   translation -0.45 0 0.075
   rotation 0 0 1 -1.5708
   children [
@@ -913,12 +918,12 @@ DEF robot Robot {
   physics Physics {
   }
   controller "fourth_challenge_controller"
+  customData "False"
 }
 Robot {
   name "Robot Tracker"
   controller "robot_tracker"
   supervisor TRUE
 }
-Evil_Duck {
-  translation 0.44 0 0.02
+DEF Duck Evil_Duck {
 }

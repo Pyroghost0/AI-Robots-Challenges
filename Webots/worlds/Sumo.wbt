@@ -15,7 +15,7 @@ Viewpoint {
   position -0.567749738475734 -0.4957384665481661 1.8115940905919174
 }
 Robot {
-  name "Random Placement"
+  name "2 Random Placement"
   controller "random_placement"
   supervisor TRUE
 }
@@ -907,6 +907,7 @@ DEF Random_0 Robot {
   physics Physics {
   }
   controller "sumo_controller"
+  customData "False"
 }
 DEF Random_1 Evil_Duck {
   translation -0.35 0 0

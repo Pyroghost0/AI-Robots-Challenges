@@ -75,6 +75,9 @@ if __name__ == "__main__":
     camera_motor.maxPosition = camera_max_position
     camera_motor.minPosition = camera_min_position
 
+    #Set random object placement (change to 'True' or 'False')
+    robot.custom_data = 'False'
+
     #Main Loop while simulation is running
     while robot.step(time_step) != -1:
         #Code goes here
