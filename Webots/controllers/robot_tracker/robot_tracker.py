@@ -6,6 +6,7 @@ import math
 robot = Supervisor()
 timestep = int(robot.getBasicTimeStep())
 node = robot.getFromDef('Random_0')
+stopIfOutside = node.getField('customData').getSFString() != 'true' and node.getField('customData').getSFString() != 'True'
 
 radius = .45
 maxError = .075
@@ -18,7 +19,7 @@ while robot.step(timestep) != -1:
     
     position = node.getPosition()
     magnitude = math.sqrt(pow(position[0], 2) + pow(position[1], 2))
-    if abs(magnitude - radius) > maxError:
+    if stopIfOutside and abs(magnitude - radius) > maxError:
         print(AnsiCodes.YELLOW_FOREGROUND + "Failed: Robot out of bounds..." + AnsiCodes.RESET)#\x1b[33m
         robot.simulationSetMode(0)
         break
